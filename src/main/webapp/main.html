@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>管理系统</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">管理系统</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="#">主页</a>
+				</li>
+				<li class="active">
+					<a href="#">用户管理</a>
+				</li>
+				<li>
+					<a href="#">数据管理</a>
+				</li>
+			</ul>
+			<form class="navbar-form navbar-right" action="#">
+				<button type="submit" class="btn btn-danger btn-sm">登出</button>
+			</form>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="panel panel-primary">
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation">
+							<a href="#">主页</a>
+						</li>
+						<li role="presentation" class="active">
+							<a href="#">数据管理</a>
+						</li>
+						<li role="presentation">
+							<a href="#">用户管理</a>
+						</li>
+						<li role="presentation">
+							<a href="#">关于我们</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-10">
+				<div class="panel panel-primary">
+					<div class="panel-heading">搜索条件</div>
+					<div class="panel-body">
+						<form method="post"
+							action="<%=request.getContextPath()%>/user/list.action">
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label>用户名</label>
+									<input type="text" class="form-control" name="username" />
+								</div>
+								<div class="form-group col-md-6">
+									<label>昵称</label>
+									<input type="text" class="form-control" name="nickname" />
+								</div>
+							</div>
+							<div class="pull-right">
+								<button class="btn btn-primary" type="submit">搜索</button>
+								<button class="btn btn-primary" type="reset">重置</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="mt10f pb10">
+					<a href="initAdd.action">
+						<button class="btn btn-primary" type="button">添加</button>
+					</a>
+					<button class="btn btn-primary" type="button" data-toggle="modal"
+						data-target="#myModal">导入</button>
+				</div>
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">搜索结果</div>
+					<table class="table  table-bordered">
+						<thead>
+							<tr class="active">
+								<th width="10%">编号</th>
+								<th width="15%">用户名</th>
+								<th width="15%">昵称</th>
+								<th width="20%">创建时间</th>
+								<th>描述</th>
+								<th width="15%">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>001</td>
+								<td>liunancun</td>
+								<td>liunancun</td>
+								<td>2015-10-20 12:12:12</td>
+								<td>admin</td>
+								<td>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">编辑</button>
+									</a>
+									<a href="#">
+										<button class="btn btn-primary btn-xs" type="button">删除</button>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

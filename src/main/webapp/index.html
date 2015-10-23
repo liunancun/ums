@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>管理系统</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-switch.min.css" rel="stylesheet">
+<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<form action="" class="form-horizontal" role="form">
+			<fieldset>
+				<legend>Test</legend>
+				<div class="form-group">
+					<div class="input-group date form_date col-md-5" data-date=""
+						data-date-format="dd MM yyyy" data-link-field="dtp_input2"
+						data-link-format="yyyy-mm-dd">
+						<input class="form-control" size="16" type="text" value=""
+							readonly>
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-remove"></span></span> <span
+							class="input-group-addon"><span
+							class="glyphicon glyphicon-calendar"></span></span>
+					</div>
+					<input type="hidden" id="dtp_input2" value="" />
+					<br />
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<input class="date" type="text" data-date-format="dd-mm-yyyy">
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-switch.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+</body>
+</html>
