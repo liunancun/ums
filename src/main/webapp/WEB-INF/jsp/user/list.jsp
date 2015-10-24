@@ -71,9 +71,11 @@
 				<!-- 功能按钮开始 -->
 				<div class="mt10f pb10">
 					<button class="btn btn-primary" type="button" onclick="add()">添加</button>
+					<button class="btn btn-primary" type="button" onclick="imp()">导入</button>
 					<a href="<%=request.getContextPath()%>/user/export.action">
 						<button class="btn btn-primary" type="submit">导出</button>
 					</a>
+					<button class="btn btn-primary" type="button" onclick="download()">下载</button>
 				</div>
 				<!-- 功能按钮结束 -->
 
@@ -159,6 +161,8 @@
 	<%@ include file="edit.jsp"%>
 	<!-- 引入详情页面文件 -->
 	<%@ include file="view.jsp"%>
+	<!-- 引入上传页面文件 -->
+	<%@ include file="import.jsp"%>
 
 	<!-- 引入脚本文件 -->
 	<%@ include file="../js.jsp"%>
