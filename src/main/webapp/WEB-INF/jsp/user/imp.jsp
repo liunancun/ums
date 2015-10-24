@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<div class="modal fade" id="imp">
-	<div class="modal-dialog">
+<div class="modal fade bs-example-modal-sm" id="imp">
+	<div class="modal-dialog modal-sm">
 		<form class="modal-content" method="post"
-			action="<%=request.getContextPath()%>/user/import.action">
+			enctype="multipart/form-data"
+			action="<%=request.getContextPath()%>/user/imp.action">
 			<div class="modal-header bg-primary">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
@@ -14,8 +15,8 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<label>描述</label>
-					<textarea class="form-control" rows="5"></textarea>
+					<label>用户数据文件</label>
+					<input name="userInfoFile" type="file" />
 				</div>
 			</div>
 			<div class="modal-footer">

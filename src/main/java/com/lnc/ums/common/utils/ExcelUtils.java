@@ -1,7 +1,9 @@
 package com.lnc.ums.common.utils;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -19,6 +21,58 @@ import org.apache.poi.ss.usermodel.IndexedColors;
  *
  */
 public class ExcelUtils {
+
+	public static List<Object[]> read(InputStream stream) throws IOException {
+		// 定义需要返回的结果数据
+		List<Object[]> datas = new ArrayList<Object[]>();
+
+		// 根据输入流创建一个工作薄
+		HSSFWorkbook workbook = new HSSFWorkbook(stream);
+		// 得到第一个表格
+		HSSFSheet sheet = workbook.getSheetAt(0);
+		// 循环表格中的每一行
+		for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+			// 得到一条记录
+			HSSFRow row = sheet.getRow(i);
+			// 循环一行中的每个单元格
+			Object[] data = new Object[row.getLastCellNum()];
+			for (int j = 0; j < row.getLastCellNum(); j++) {
+				// 得到一个单元格
+				HSSFCell cell = row.getCell(j);
+
+				if (cell == null) {
+					System.out.println(i + "-" + j);
+				}
+
+				// 得到单元格中的数据
+				data[j] = cell.getStringCellValue();
+			}
+			datas.add(data);
+		}
+
+		// 关闭工作薄
+		workbook.close();
+
+		return datas;
+	}
+
+	public static void write() {
+
+	}
+
+	public static void imp(InputStream is) throws IOException {
+		HSSFWorkbook workbook = new HSSFWorkbook(is);
+
+		HSSFSheet sheet = workbook.getSheetAt(0);
+
+		for (int r = 1; r <= sheet.getLastRowNum(); r++) {
+			HSSFRow row = sheet.getRow(r);
+			System.out.println(row.getCell(0).getStringCellValue());
+		}
+
+		workbook.close();
+		is.close();
+	}
 
 	/**
 	 * 导出Excel表格

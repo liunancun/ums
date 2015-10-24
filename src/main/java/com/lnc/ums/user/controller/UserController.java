@@ -1,6 +1,7 @@
 package com.lnc.ums.user.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.lnc.ums.common.utils.ExcelUtils;
 import com.lnc.ums.user.po.UserPo;
@@ -71,6 +73,43 @@ public class UserController {
 	public String delete(int id) {
 
 		userService.delete(id);
+
+		return "redirect:list.action";
+	}
+
+	@RequestMapping("imp")
+	public String imp(MultipartFile userInfoFile) {
+
+		List<Object[]> datas = null;
+		if (userInfoFile != null) {
+			InputStream stream = null;
+			try {
+				stream = userInfoFile.getInputStream();
+				datas = ExcelUtils.read(stream);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				if (stream != null) {
+					try {
+						stream.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+
+		if (datas != null) {
+			UserPo user = null;
+			for (Object[] data : datas) {
+				user = new UserPo();
+				user.setUsername(String.valueOf(data[0]));
+				user.setPassword(String.valueOf(data[1]));
+				user.setAdmin("是".equals(data[2]));
+				user.setDesc(String.valueOf(data[3]));
+				userService.save(user);
+			}
+		}
 
 		return "redirect:list.action";
 	}
