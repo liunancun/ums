@@ -20,7 +20,7 @@
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-default" type="button" data-dismiss="modal">取消</button>
-				<button class="btn btn-primary" type="submit">提交</button>
+				<button class="btn btn-primary" type="submit" data-dismiss="modal">提交</button>
 			</div>
 		</form>
 	</div>
