@@ -71,6 +71,9 @@
 				<!-- 功能按钮开始 -->
 				<div class="mt10f pb10">
 					<button class="btn btn-primary" type="button" onclick="add()">添加</button>
+					<a href="<%=request.getContextPath()%>/user/export.action">
+						<button class="btn btn-primary" type="submit">导出</button>
+					</a>
 				</div>
 				<!-- 功能按钮结束 -->
 
