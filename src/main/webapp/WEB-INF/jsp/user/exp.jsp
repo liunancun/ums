@@ -4,7 +4,7 @@
 <div class="modal fade" id="exp">
 	<div class="modal-dialog">
 		<form class="modal-content" method="post"
-			action="<%=request.getContextPath()%>/user/export.action">
+			action="<%=request.getContextPath()%>/user/exp.action">
 			<div class="modal-header bg-primary">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
@@ -20,7 +20,7 @@
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-default" type="button" data-dismiss="modal">取消</button>
-				<button class="btn btn-primary" type="submit" data-dismiss="modal">提交</button>
+				<button class="btn btn-primary" type="submit">提交</button>
 			</div>
 		</form>
 	</div>

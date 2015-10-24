@@ -114,8 +114,8 @@ public class UserController {
 		return "redirect:list.action";
 	}
 
-	@RequestMapping("export")
-	public void export(HttpServletResponse response) {
+	@RequestMapping("exp")
+	public void exp(HttpServletResponse response) {
 
 		String fileName = "用户信息.xls";
 		try {
@@ -150,7 +150,7 @@ public class UserController {
 		}
 
 		try {
-			ExcelUtils.export(title, datas, response.getOutputStream());
+			ExcelUtils.write(title, datas, response.getOutputStream());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

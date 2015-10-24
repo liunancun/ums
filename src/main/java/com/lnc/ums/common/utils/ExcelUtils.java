@@ -22,6 +22,13 @@ import org.apache.poi.ss.usermodel.IndexedColors;
  */
 public class ExcelUtils {
 
+	/**
+	 * 从Excel中读取数据
+	 * 
+	 * @param stream
+	 * @return
+	 * @throws IOException
+	 */
 	public static List<Object[]> read(InputStream stream) throws IOException {
 		// 定义需要返回的结果数据
 		List<Object[]> datas = new ArrayList<Object[]>();
@@ -39,11 +46,6 @@ public class ExcelUtils {
 			for (int j = 0; j < row.getLastCellNum(); j++) {
 				// 得到一个单元格
 				HSSFCell cell = row.getCell(j);
-
-				if (cell == null) {
-					System.out.println(i + "-" + j);
-				}
-
 				// 得到单元格中的数据
 				data[j] = cell.getStringCellValue();
 			}
@@ -56,72 +58,59 @@ public class ExcelUtils {
 		return datas;
 	}
 
-	public static void write() {
-
-	}
-
-	public static void imp(InputStream is) throws IOException {
-		HSSFWorkbook workbook = new HSSFWorkbook(is);
-
-		HSSFSheet sheet = workbook.getSheetAt(0);
-
-		for (int r = 1; r <= sheet.getLastRowNum(); r++) {
-			HSSFRow row = sheet.getRow(r);
-			System.out.println(row.getCell(0).getStringCellValue());
-		}
-
-		workbook.close();
-		is.close();
-	}
-
 	/**
-	 * 导出Excel表格
+	 * 将数据写入Excel中
 	 * 
 	 * @param title
 	 * @param datas
 	 * @param stream
+	 * @throws IOException
 	 */
-	public static void export(String[] title, List<Object[]> datas, OutputStream stream) {
-
-		// 声明一个工作薄
+	public static void write(String[] title, List<Object[]> datas, OutputStream stream) throws IOException {
+		// 创建一个工作薄
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		// 创建一个表格
 		HSSFSheet sheet = workbook.createSheet();
 
-		// 创建表头
+		// 创建第一条表头记录
 		HSSFRow row = sheet.createRow(0);
 		HSSFCell cell = null;
+		// 循环写入表头
+		HSSFCellStyle titleStyle = createTitleStyle(workbook);
 		for (int i = 0; i < title.length; i++) {
+			// 设置列宽
 			sheet.setColumnWidth(i, 2560);
+			// 创建表头中的每个单元格
 			cell = row.createCell(i);
-			cell.setCellStyle(createTitleStyle(workbook));
+			// 为表头单元格设置样式
+			cell.setCellStyle(titleStyle);
+			// 把数据写入单元格
 			cell.setCellValue(title[i]);
 		}
 
+		// 循环往表格中写入数据
 		int count = 0;
+		HSSFCellStyle dataStyle = createDataStyle(workbook);
 		for (Object[] data : datas) {
-			// 创建一条记录
+			// 循环创建每一条记录保存数据
 			row = sheet.createRow(++count);
+			// 循环创建单元格
 			for (int i = 0; i < data.length; i++) {
 				Object obj = data[i];
 				if (obj != null) {
 					cell = row.createCell(i);
+					// 为数据单元格设置样式
+					cell.setCellStyle(dataStyle);
+					// 把数据写入单元格
 					cell.setCellValue(String.valueOf(obj));
 				}
 			}
 		}
 
-		try {
-			workbook.write(stream);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				workbook.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		// 将Excel数据写入到输出流
+		workbook.write(stream);
+		// 关闭工作薄
+		workbook.close();
 	}
 
 	/**
