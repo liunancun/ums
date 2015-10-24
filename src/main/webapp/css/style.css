@@ -47,9 +47,29 @@
 	cursor: pointer;
 }
 
-.png18 {
+.img18 {
 	width: 18px;
 	height: 18px;
 	margin-left: 5px;
+	cursor: pointer;
+}
+
+.img32 {
+	width: 32px;
+	height: 32px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.img34 {
+	width: 34px;
+	height: 34px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.calendar {
+	background: url(../img/calendar.png) right no-repeat;
+	background-size: 32px;
 	cursor: pointer;
 }

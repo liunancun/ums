@@ -1,12 +1,16 @@
+.navbar-fixed-top {
+	border: 0;
+}
+
 .menu {
 	position: fixed;
-	top: 51px;
+	top: 50px;
 	bottom: 0;
 	left: 0;
 	z-index: 1000;
 	padding: 20px;
-	background-color: #f5f5f5;
-	border-right: 1px solid #eee;
+	background-color: #f8f8f8;
+	border-right: 1px solid #f8f8f8;
 }
 
 .nav-menu {

@@ -37,7 +37,8 @@
 								</div>
 								<div class="form-group col-md-6">
 									<label>昵称</label>
-									<input type="text" class="form-control" name="nickname"
+									<input type="text"
+										class="form-control date yyyy-mm-dd calendar" name="nickname"
 										value="${param.nickname }" />
 								</div>
 							</div>
@@ -72,9 +73,9 @@
 								<td>2015-10-22 22:12</td>
 								<td>Admin</td>
 								<td>
-									<img class="png18" alt="edit" src="img/view.png" />
-									<img class="png18" alt="edit" src="img/edit.png" />
-									<img class="png18" alt="edit" src="img/delete.png" />
+									<img class="img18" alt="edit" src="img/view.png" />
+									<img class="img18" alt="edit" src="img/edit.png" />
+									<img class="img18" alt="edit" src="img/delete.png" />
 								</td>
 							</tr>
 							<tr>
@@ -84,9 +85,9 @@
 								<td>2015-10-22 22:12</td>
 								<td>Admin</td>
 								<td>
-									<img class="png18" alt="edit" src="img/view.png" />
-									<img class="png18" alt="edit" src="img/edit.png" />
-									<img class="png18" alt="edit" src="img/delete.png" />
+									<img class="img18" alt="edit" src="img/view.png" />
+									<img class="img18" alt="edit" src="img/edit.png" />
+									<img class="img18" alt="edit" src="img/delete.png" />
 								</td>
 							</tr>
 							<tr>
@@ -96,9 +97,9 @@
 								<td>2015-10-22 22:12</td>
 								<td>Admin</td>
 								<td>
-									<img class="png18" alt="edit" src="img/view.png" />
-									<img class="png18" alt="edit" src="img/edit.png" />
-									<img class="png18" alt="edit" src="img/delete.png" />
+									<img class="img18" alt="edit" src="img/view.png" />
+									<img class="img18" alt="edit" src="img/edit.png" />
+									<img class="img18" alt="edit" src="img/delete.png" />
 								</td>
 							</tr>
 						</tbody>

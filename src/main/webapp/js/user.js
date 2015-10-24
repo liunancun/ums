@@ -40,7 +40,6 @@ $(function(argument) {
 		language : 'zh-CN',
 		autoclose : true,
 		minView : 2,
-		pickerPosition : 'bottom-left',
 		linkField : "start_time",
 		linkFormat : "yyyy-mm-dd 00:00:00"
 	});
@@ -50,7 +49,6 @@ $(function(argument) {
 		language : 'zh-CN',
 		autoclose : true,
 		minView : 2,
-		pickerPosition : 'bottom-left',
 		linkField : "end_time",
 		linkFormat : "yyyy-mm-dd 23:59:59"
 	});

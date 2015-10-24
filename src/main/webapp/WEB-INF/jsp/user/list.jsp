@@ -38,30 +38,22 @@
 									<label>创建时间</label>
 									<div class="row">
 										<div class="col-md-6">
-											<div class="input-group date start-time">
-												<fmt:parseDate value="${param.startTime }" var="startTime"
-													pattern="yyyy-MM-dd HH:mm:ss" />
-												<input id="start_time" name="startTime" type="hidden"
-													value="<fmt:formatDate value='${startTime }' pattern='yyyy-MM-dd HH:mm:ss' />" />
-												<input class="form-control" type="text" placeholder="开始时间"
-													value="<fmt:formatDate value='${startTime }' pattern='yyyy-MM-dd' />" />
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-th"></i>
-												</span>
-											</div>
+											<fmt:parseDate value="${param.startTime }" var="startTime"
+												pattern="yyyy-MM-dd HH:mm:ss" />
+											<input class="form-control date start-time calendar" readonly
+												type="text" placeholder="开始时间"
+												value="<fmt:formatDate value='${startTime }' pattern='yyyy-MM-dd' />" />
+											<input id="start_time" name="startTime" type="hidden"
+												value="<fmt:formatDate value='${startTime }' pattern='yyyy-MM-dd HH:mm:ss' />" />
 										</div>
 										<div class="col-md-6">
-											<div class="input-group date end-time">
-												<fmt:parseDate value="${param.endTime }" var="endTime"
-													pattern="yyyy-MM-dd HH:mm:ss" />
-												<input id="end_time" name="endTime" type="hidden"
-													value="<fmt:formatDate value='${endTime }' pattern='yyyy-MM-dd HH:mm:ss' />" />
-												<input class="form-control " type="text" placeholder="结束时间"
-													value="<fmt:formatDate value='${endTime }' pattern='yyyy-MM-dd' />" />
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-th"></i>
-												</span>
-											</div>
+											<fmt:parseDate value="${param.endTime }" var="endTime"
+												pattern="yyyy-MM-dd HH:mm:ss" />
+											<input class="form-control date end-time calendar" readonly
+												type="text" placeholder="结束时间"
+												value="<fmt:formatDate value='${endTime }' pattern='yyyy-MM-dd' />" />
+											<input id="end_time" name="endTime" type="hidden"
+												value="<fmt:formatDate value='${endTime }' pattern='yyyy-MM-dd HH:mm:ss' />" />
 										</div>
 									</div>
 								</div>
@@ -111,12 +103,12 @@
 											</td>
 											<td title="${user.desc }">${user.desc }</td>
 											<td>
-												<img class="png18" alt="edit" src="../img/view.png"
+												<img class="img18" alt="edit" src="../img/view.png"
 													onclick="view('${user.username }','${user.desc }', ${user.admin })" />
-												<img class="png18" alt="edit" src="../img/edit.png"
+												<img class="img18" alt="edit" src="../img/edit.png"
 													onclick="edit('${user.id }','${user.username }','${user.desc }', ${user.admin })" />
 												<a href="delete.action?id=${user.id }">
-													<img class="png18" alt="edit" src="../img/delete.png" />
+													<img class="img18" alt="edit" src="../img/delete.png" />
 												</a>
 											</td>
 										</tr>
