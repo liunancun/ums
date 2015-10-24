@@ -26,6 +26,10 @@ function imp() {
 	$('#imp').modal();
 }
 
+function exp() {
+	$('#exp').modal();
+}
+
 function download() {
 	alert("下载模板");
 }
