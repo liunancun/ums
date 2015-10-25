@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class DateUtils {
 
 	/**
-	 * 获取当前时间
+	 * 获得当前时间
 	 * 
 	 * @return
 	 */
@@ -19,6 +19,20 @@ public class DateUtils {
 	}
 
 	/**
+	 * 时间类型转换成字符串
+	 * 
+	 * @param time
+	 * @param format
+	 * @return
+	 */
+	public static String toString(Timestamp time, String format) {
+
+		DateFormat sdf = new SimpleDateFormat(format);
+
+		return sdf.format(time);
+	}
+
+	/**
 	 * 时间类型转换成字符串[yyyy-MM-dd HH:mm:ss]
 	 * 
 	 * @param time
@@ -26,9 +40,7 @@ public class DateUtils {
 	 */
 	public static String toString(Timestamp time) {
 
-		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-		return sdf.format(time);
+		return toString(time, "yyyy-MM-dd HH:mm:ss");
 	}
 
 }

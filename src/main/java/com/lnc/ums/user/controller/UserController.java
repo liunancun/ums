@@ -2,7 +2,6 @@ package com.lnc.ums.user.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lnc.ums.common.utils.DateUtils;
+import com.lnc.ums.common.utils.DownloadUtils;
 import com.lnc.ums.common.utils.ExcelUtils;
 import com.lnc.ums.user.po.UserPo;
 import com.lnc.ums.user.service.UserService;
@@ -134,17 +134,9 @@ public class UserController {
 	@RequestMapping("exp")
 	public void exp(HttpServletResponse response) {
 
-		String fileName = "用户信息.xls";
-		try {
-			// 解决中文乱码
-			fileName = new String(fileName.getBytes("GBK"), "ISO-8859-1");
-		} catch (UnsupportedEncodingException e2) {
-			e2.printStackTrace();
-		}
-
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("multipart/form-data");
-		response.setHeader("Content-Disposition", "attachment;fileName=" + fileName);
+		// 下载文件名字
+		String fileName = "用户列表_" + DateUtils.toString(DateUtils.currentTime(), "yyyyMMddHHmmss") + ".xls";
+		DownloadUtils.fileNameToResponse(response, fileName);
 
 		// 查询所有用户列表
 		List<UserPo> users = userService.query(null);
@@ -176,17 +168,9 @@ public class UserController {
 	@RequestMapping("down")
 	public void down(HttpServletResponse response) {
 
-		String fileName = "用户信息模板.xls";
-		try {
-			// 解决中文乱码
-			fileName = new String(fileName.getBytes("GBK"), "ISO-8859-1");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("multipart/form-data");
-		response.setHeader("Content-Disposition", "attachment;fileName=" + fileName);
+		// 下载文件名字
+		String fileName = "用户列表模板_" + DateUtils.toString(DateUtils.currentTime(), "yyyyMMddHHmmss") + ".xls";
+		DownloadUtils.fileNameToResponse(response, fileName);
 
 		// 表格表头
 		String[] title = { "用户名", "密码", "是否管理员" };
