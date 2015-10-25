@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,7 +81,10 @@ public class UserController {
 	}
 
 	@RequestMapping("imp")
-	public @ResponseBody String imp(MultipartFile userFile) {
+	public @ResponseBody String imp(HttpSession session, MultipartFile userFile) {
+
+		// 重置上传进度
+		session.setAttribute("progress", 0);
 
 		List<Object[]> datas = null;
 		if (userFile != null) {
@@ -110,6 +114,17 @@ public class UserController {
 				user.setAdmin("是".equals(data[2]));
 				user.setDesc(String.valueOf(data[3]));
 				userService.save(user);
+			}
+		}
+
+		// 模拟上传进度
+		for (int i = 0; i <= 100; i += 5) {
+			session.setAttribute("progress", i);
+			System.out.println(i);
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		}
 
@@ -180,11 +195,6 @@ public class UserController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	@RequestMapping("progress")
-	public @ResponseBody String progress() {
-		return "1";
 	}
 
 }

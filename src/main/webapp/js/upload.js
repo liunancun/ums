@@ -14,18 +14,37 @@ function upload(obj) {
 		beforeSend : function() {
 			// 重置文件上传表单
 			$(obj).val('');
-			// 弹出进度条
-
-		},
-		success : function(data) {
-			// 关闭进度条
-			alert('关闭进度条');
-			// 刷新列表页面
-
-		},
-		error : function(data) {
-			// 弹出错误页面
-
+			// 显示进度条
+			$('#progress').modal({
+				backdrop : 'static'
+			});
+			// 更新上传进度
+			progress();
 		}
 	});
+}
+
+function progress() {
+	// 延时2秒
+	setTimeout(function() {
+		// 更新进度
+		$.ajax({
+			url : '/ums/progress.action',
+			success : function(data) {
+				var width = 'min-width: 2em;width: ' + data + '%;';
+				var html = data + '%';
+				$('#progress').find('div:last').attr('style', width);
+				$('#progress').find('span:last').html(html);
+				if (data < 100) {
+					progress();
+				} else {
+					// 延时2秒
+					setTimeout(function() {
+						// 刷新当前页
+						location.replace(location);
+					}, 2000);
+				}
+			}
+		});
+	}, 2000);
 }

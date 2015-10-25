@@ -13,6 +13,8 @@
 <%@ include file="../css.jsp"%>
 </head>
 <body>
+	<!-- 引入进度条页面 -->
+	<%@ include file="../progress.jsp"%>
 	<%-- 引入页头文件 --%>
 	<%@ include file="../brand.jsp"%>
 
