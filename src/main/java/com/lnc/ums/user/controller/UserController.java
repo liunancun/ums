@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lnc.ums.common.utils.DateUtils;
@@ -79,7 +80,7 @@ public class UserController {
 	}
 
 	@RequestMapping("imp")
-	public String imp(MultipartFile userFile) {
+	public @ResponseBody String imp(MultipartFile userFile) {
 
 		List<Object[]> datas = null;
 		if (userFile != null) {
@@ -182,7 +183,7 @@ public class UserController {
 	}
 
 	@RequestMapping("progress")
-	public String progress() {
+	public @ResponseBody String progress() {
 		return "1";
 	}
 
