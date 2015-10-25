@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.lnc.ums.common.utils.DateUtils;
 import com.lnc.ums.common.utils.ExcelUtils;
 import com.lnc.ums.user.po.UserPo;
 import com.lnc.ums.user.service.UserService;
@@ -144,7 +145,7 @@ public class UserController {
 			} else {
 				data[2] = "否";
 			}
-			data[3] = user.getCreateTime();
+			data[3] = DateUtils.toString(user.getCreateTime());
 			data[4] = user.getDesc();
 			datas.add(data);
 		}
