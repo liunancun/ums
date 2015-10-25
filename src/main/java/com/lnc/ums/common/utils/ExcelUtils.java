@@ -76,33 +76,37 @@ public class ExcelUtils {
 		HSSFRow row = sheet.createRow(0);
 		HSSFCell cell = null;
 		// 循环写入表头
-		HSSFCellStyle titleStyle = createTitleStyle(workbook);
-		for (int i = 0; i < title.length; i++) {
-			// 设置列宽
-			sheet.setColumnWidth(i, 2560);
-			// 创建表头中的每个单元格
-			cell = row.createCell(i);
-			// 为表头单元格设置样式
-			cell.setCellStyle(titleStyle);
-			// 把数据写入单元格
-			cell.setCellValue(title[i]);
+		if (title != null) {
+			HSSFCellStyle titleStyle = createTitleStyle(workbook);
+			for (int i = 0; i < title.length; i++) {
+				// 设置列宽
+				sheet.setColumnWidth(i, 2560);
+				// 创建表头中的每个单元格
+				cell = row.createCell(i);
+				// 为表头单元格设置样式
+				cell.setCellStyle(titleStyle);
+				// 把数据写入单元格
+				cell.setCellValue(title[i]);
+			}
 		}
 
 		// 循环往表格中写入数据
-		int count = 0;
-		HSSFCellStyle dataStyle = createDataStyle(workbook);
-		for (Object[] data : datas) {
-			// 循环创建每一条记录保存数据
-			row = sheet.createRow(++count);
-			// 循环创建单元格
-			for (int i = 0; i < data.length; i++) {
-				Object obj = data[i];
-				if (obj != null) {
-					cell = row.createCell(i);
-					// 为数据单元格设置样式
-					cell.setCellStyle(dataStyle);
-					// 把数据写入单元格
-					cell.setCellValue(String.valueOf(obj));
+		if (datas != null) {
+			int count = 0;
+			HSSFCellStyle dataStyle = createDataStyle(workbook);
+			for (Object[] data : datas) {
+				// 循环创建每一条记录保存数据
+				row = sheet.createRow(++count);
+				// 循环创建单元格
+				for (int i = 0; i < data.length; i++) {
+					Object obj = data[i];
+					if (obj != null) {
+						cell = row.createCell(i);
+						// 为数据单元格设置样式
+						cell.setCellStyle(dataStyle);
+						// 把数据写入单元格
+						cell.setCellValue(String.valueOf(obj));
+					}
 				}
 			}
 		}

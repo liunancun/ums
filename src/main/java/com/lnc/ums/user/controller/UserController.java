@@ -79,13 +79,13 @@ public class UserController {
 	}
 
 	@RequestMapping("imp")
-	public String imp(MultipartFile userInfoFile) {
+	public String imp(MultipartFile userFile) {
 
 		List<Object[]> datas = null;
-		if (userInfoFile != null) {
+		if (userFile != null) {
 			InputStream stream = null;
 			try {
-				stream = userInfoFile.getInputStream();
+				stream = userFile.getInputStream();
 				datas = ExcelUtils.read(stream);
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -112,7 +112,7 @@ public class UserController {
 			}
 		}
 
-		return "redirect:list.action";
+		return "success";
 	}
 
 	@RequestMapping("exp")
@@ -155,6 +155,35 @@ public class UserController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@RequestMapping("down")
+	public void down(HttpServletResponse response) {
+
+		String fileName = "用户信息模板.xls";
+		try {
+			// 解决中文乱码
+			fileName = new String(fileName.getBytes("GBK"), "ISO-8859-1");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("multipart/form-data");
+		response.setHeader("Content-Disposition", "attachment;fileName=" + fileName);
+
+		// 表格表头
+		String[] title = { "用户名", "密码", "是否管理员" };
+		try {
+			ExcelUtils.write(title, null, response.getOutputStream());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@RequestMapping("progress")
+	public String progress() {
+		return "1";
 	}
 
 }

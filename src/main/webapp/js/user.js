@@ -22,18 +22,6 @@ function edit(id, username, desc, admin) {
 	$('#edit').modal();
 }
 
-function imp() {
-	$('#imp').modal();
-}
-
-function exp() {
-	$('#exp').modal();
-}
-
-function download() {
-	alert("下载模板");
-}
-
 $(function(argument) {
 	// 初始化开关组件
 	$('[type="checkbox"]').bootstrapSwitch();
