@@ -142,7 +142,7 @@ public class UserController {
 		DownloadUtils.fileNameToResponse(response, fileName);
 
 		// 查询所有用户列表
-		List<UserPo> users = userService.query(null, null);
+		List<UserPo> users = userService.query(null);
 
 		// 表格表头
 		String[] title = { "编号", "用户名", "是否管理员", "创建时间", "描述" };

@@ -16,6 +16,20 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
+	public List<UserPo> query(UserPo user) {
+
+		List<UserPo> users = userMapper.query(user);
+
+		for (UserPo po : users) {
+			String desc = po.getDesc();
+			desc = desc.replaceAll("\r\n", "<br>");
+			po.setDesc(desc);
+		}
+
+		return users;
+	}
+
+	@Override
 	public List<UserPo> query(UserPo user, PageBounds pageBounds) {
 
 		List<UserPo> users = userMapper.query(user, pageBounds);

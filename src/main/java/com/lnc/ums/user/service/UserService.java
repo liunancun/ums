@@ -7,6 +7,8 @@ import com.lnc.ums.user.po.UserPo;
 
 public interface UserService {
 
+	List<UserPo> query(UserPo user);
+
 	List<UserPo> query(UserPo user, PageBounds pageBounds);
 
 	UserPo queryById(int id);
