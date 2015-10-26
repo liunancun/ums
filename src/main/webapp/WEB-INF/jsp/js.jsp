@@ -14,5 +14,6 @@
 <script src="../js/bootstrap-datetimepicker.zh-CN.js"></script>
 <%-- 引入自定义脚本 --%>
 <script src="../js/upload.js"></script>
+<script src="../js/page.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/user.js"></script>

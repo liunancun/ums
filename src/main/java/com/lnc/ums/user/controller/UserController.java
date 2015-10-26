@@ -12,9 +12,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.lnc.ums.common.utils.DateUtils;
 import com.lnc.ums.common.utils.DownloadUtils;
 import com.lnc.ums.common.utils.ExcelUtils;
@@ -29,12 +31,13 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping("list")
-	public String list(Model model, UserPo user) {
+	public String list(Model model, UserPo user, @RequestParam(required = false, defaultValue = "1") int page,
+			@RequestParam(required = false, defaultValue = "10") int limit) {
 
 		// 设置当前菜单ID
 		model.addAttribute("menuId", "user");
 
-		List<UserPo> users = userService.query(user);
+		List<UserPo> users = userService.query(user, new PageBounds(page, limit));
 
 		model.addAttribute("users", users);
 
@@ -139,7 +142,7 @@ public class UserController {
 		DownloadUtils.fileNameToResponse(response, fileName);
 
 		// 查询所有用户列表
-		List<UserPo> users = userService.query(null);
+		List<UserPo> users = userService.query(null, null);
 
 		// 表格表头
 		String[] title = { "编号", "用户名", "是否管理员", "创建时间", "描述" };

@@ -136,27 +136,8 @@
 				</div>
 				<!-- 查询结果结束 -->
 
-				<!-- 分页开始 -->
-				<nav class="mt20f pull-right">
-					<ul class="pagination">
-						<li>
-							<span>100条记录1/10页</span>
-						</li>
-						<li>
-							<a href="#">首页</a>
-						</li>
-						<li>
-							<a href="#">上一页</a>
-						</li>
-						<li>
-							<a href="#">下一页</a>
-						</li>
-						<li>
-							<a href="#">尾页</a>
-						</li>
-					</ul>
-				</nav>
-				<!-- 分页结束 -->
+				<!-- 引入分页页面文件 -->
+				<%@ include file="page.jsp"%>
 			</div>
 		</div>
 	</div>

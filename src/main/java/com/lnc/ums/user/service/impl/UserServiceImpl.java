@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.lnc.ums.common.utils.DateUtils;
 import com.lnc.ums.user.mapper.UserMapper;
 import com.lnc.ums.user.po.UserPo;
@@ -15,9 +16,9 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
-	public List<UserPo> query(UserPo user) {
+	public List<UserPo> query(UserPo user, PageBounds pageBounds) {
 
-		List<UserPo> users = userMapper.query(user);
+		List<UserPo> users = userMapper.query(user, pageBounds);
 
 		for (UserPo po : users) {
 			String desc = po.getDesc();

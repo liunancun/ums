@@ -6,4 +6,12 @@
 		<package name="com.lnc.ums.user.po" />
 	</typeAliases>
 
+	<plugins>
+		<plugin
+			interceptor="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor">
+			<property name="dialectClass"
+				value="com.github.miemiedev.mybatis.paginator.dialect.H2Dialect" />
+		</plugin>
+	</plugins>
+
 </configuration>
