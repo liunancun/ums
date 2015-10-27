@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.lnc.ums.common.utils.MD5;
 import com.lnc.ums.menu.po.MenuPo;
 import com.lnc.ums.user.po.UserPo;
 import com.lnc.ums.user.service.UserService;
@@ -26,6 +27,8 @@ public class LoginController {
 
 		if (!StringUtils.isEmpty(username) || !StringUtils.isEmpty(password)) {
 			UserPo user = userService.queryByUsername(username);
+			// 加密输入的密码
+			password = MD5.encode(password);
 			if (user != null && password.equals(user.getPassword())) {
 				// 保存用户信息
 				session.setAttribute("user", user);

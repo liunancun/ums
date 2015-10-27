@@ -9,4 +9,4 @@ CREATE TABLE T_USER (
   DESC VARCHAR(512)
 );
 
-INSERT INTO T_USER  VALUES(0, 'admin', 'admin', 'true', now(),'admin');
+INSERT INTO T_USER  VALUES(0, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'true', now(),'admin');
