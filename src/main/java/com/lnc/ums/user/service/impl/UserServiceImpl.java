@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.util.StringUtils;
+
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.lnc.ums.common.utils.DateUtils;
+import com.lnc.ums.common.utils.MD5;
 import com.lnc.ums.user.mapper.UserMapper;
 import com.lnc.ums.user.po.UserPo;
 import com.lnc.ums.user.service.UserService;
@@ -66,6 +69,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void save(UserPo user) {
 
+		// 使用MD5加密密码
+		String password = user.getPassword();
+		if (!StringUtils.isEmpty(password)) {
+			password = MD5.encode(password);
+			user.setPassword(password);
+		}
+
 		// 设置创建时间
 		user.setCreateTime(DateUtils.currentTime());
 
@@ -79,6 +89,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void update(UserPo user) {
+
+		// 使用MD5加密密码
+		String password = user.getPassword();
+		if (!StringUtils.isEmpty(password)) {
+			password = MD5.encode(password);
+			user.setPassword(password);
+		}
+
 		userMapper.update(user);
 	}
 
