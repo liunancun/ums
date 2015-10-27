@@ -72,7 +72,9 @@
 
 				<!-- 功能按钮开始 -->
 				<div class="mt10f pb10">
-					<button class="btn btn-primary" type="button" onclick="add()">添加</button>
+					<button class="btn btn-primary" type="button"
+						url="<%=request.getContextPath()%>/user/initAdd.action"
+						onclick="Ums.modal.load(this)">添加</button>
 					<span class="btn btn-primary btn-file">
 						导入
 						<input type="file" name="userFile" onchange="upload(this)"
@@ -115,9 +117,11 @@
 											<td title="${user.desc }">${user.desc }</td>
 											<td>
 												<img class="img18" alt="edit" src="../img/view.png"
-													onclick="view('${user.username }','${user.desc }', ${user.admin })" />
+													url="<%=request.getContextPath()%>/user/view.action?id=${user.id }"
+													onclick="Ums.modal.load(this)" />
 												<img class="img18" alt="edit" src="../img/edit.png"
-													onclick="edit('${user.id }','${user.username }','${user.desc }', ${user.admin })" />
+													url="<%=request.getContextPath()%>/user/initEdit.action?id=${user.id }"
+													onclick="Ums.modal.load(this)" />
 												<a href="delete.action?id=${user.id }">
 													<img class="img18" alt="edit" src="../img/delete.png" />
 												</a>
@@ -141,13 +145,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- 引入添加页面文件 -->
-	<%@ include file="add.jsp"%>
-	<!-- 引入编辑页面文件 -->
-	<%@ include file="edit.jsp"%>
-	<!-- 引入详情页面文件 -->
-	<%@ include file="view.jsp"%>
 
 	<!-- 引入脚本文件 -->
 	<%@ include file="../js.jsp"%>

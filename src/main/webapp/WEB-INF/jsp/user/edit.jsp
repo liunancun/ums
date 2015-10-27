@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<div class="modal fade" id="edit">
+<div class="modal fade" id="modal">
 	<div class="modal-dialog">
 		<form class="modal-content" method="post"
 			action="<%=request.getContextPath()%>/user/edit.action">
-			<input type="hidden" id="edit_id" name="id" />
+			<input type="hidden" name="id" value="${user.id }" />
 			<div class="modal-header bg-primary">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
@@ -17,13 +17,14 @@
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label>用户名</label>
-						<input class="form-control" type="text" id="edit_username"
+						<input class="form-control" type="text" value="${user.username }"
 							readonly />
 					</div>
 					<div class="form-group col-md-6">
 						<label>管理员</label>
 						<div class="switch">
-							<input type="checkbox" id="edit_admin" name="admin" value="true" />
+							<input type="checkbox" name="admin" value="true"
+								${user.admin ? 'checked' : '' } />
 						</div>
 					</div>
 				</div>
@@ -39,7 +40,7 @@
 				</div>
 				<div class="form-group">
 					<label>描述</label>
-					<textarea class="form-control" rows="5" id="edit_desc" name="desc"></textarea>
+					<textarea class="form-control" rows="5" name="desc">${user.desc }</textarea>
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -48,4 +49,10 @@
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+		$(function() {
+			// 初始化开关组件
+			$('#modal').find('[type="checkbox"]').bootstrapSwitch();
+		});
+	</script>
 </div>

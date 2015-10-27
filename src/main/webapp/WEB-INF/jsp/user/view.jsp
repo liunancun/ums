@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<div class="modal fade" id="view">
+<div class="modal fade" id="modal">
 	<div class="modal-dialog">
 		<form class="modal-content" method="post"
 			action="<%=request.getContextPath()%>/user/edit.action">
@@ -16,19 +16,19 @@
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label>用户名</label>
-						<input class="form-control" type="text" id="view_username"
+						<input class="form-control" type="text" value="${user.username }"
 							readonly />
 					</div>
 					<div class="form-group col-md-6">
 						<label>管理员</label>
 						<div class="switch">
-							<input type="checkbox" id="view_admin" />
+							<input type="checkbox" readonly ${user.admin ? 'checked' : '' } />
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
 					<label>描述</label>
-					<textarea class="form-control" rows="5" id="view_desc" readonly></textarea>
+					<textarea class="form-control" rows="5" readonly>${user.desc }</textarea>
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -36,4 +36,10 @@
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+		$(function() {
+			// 初始化开关组件
+			$('#modal').find('[type="checkbox"]').bootstrapSwitch();
+		});
+	</script>
 </div>

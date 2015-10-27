@@ -57,6 +57,16 @@ public class UserController {
 		return "redirect:list.action";
 	}
 
+	@RequestMapping("view")
+	public String view(Model model, int id) {
+
+		UserPo user = userService.queryById(id);
+
+		model.addAttribute("user", user);
+
+		return "user/view";
+	}
+
 	@RequestMapping("initEdit")
 	public String initEdit(Model model, int id) {
 

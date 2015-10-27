@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<div class="modal fade" id="add">
+<div class="modal fade" id="modal">
 	<div class="modal-dialog">
 		<form class="modal-content" method="post"
 			action="<%=request.getContextPath()%>/user/add.action">
@@ -49,4 +49,10 @@
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+		$(function() {
+			// 初始化开关组件
+			$('#modal').find('[type="checkbox"]').bootstrapSwitch();
+		});
+	</script>
 </div>
