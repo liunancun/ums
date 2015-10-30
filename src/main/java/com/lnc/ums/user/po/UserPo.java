@@ -1,8 +1,11 @@
 package com.lnc.ums.user.po;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class UserPo {
+public class UserPo implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int id;
 

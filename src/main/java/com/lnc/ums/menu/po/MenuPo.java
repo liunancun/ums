@@ -1,6 +1,10 @@
 package com.lnc.ums.menu.po;
 
-public class MenuPo {
+import java.io.Serializable;
+
+public class MenuPo implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String id;
 

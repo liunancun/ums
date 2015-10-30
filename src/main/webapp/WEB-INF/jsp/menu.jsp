@@ -15,5 +15,8 @@
 			<a href="${menu.url }">${menu.name }</a>
 			</li>
 		</c:forEach>
+		<li>
+			<a href="#">关于</a>
+		</li>
 	</ul>
 </div>

@@ -51,11 +51,6 @@ public class LoginController {
 				userMenu.setName("用户管理");
 				userMenu.setUrl(path + "/user/list.action");
 				menus.add(userMenu);
-				MenuPo aboutMenu = new MenuPo();
-				aboutMenu.setId("about");
-				aboutMenu.setName("关于");
-				aboutMenu.setUrl("#");
-				menus.add(aboutMenu);
 				session.setAttribute("menus", menus);
 			}
 		}

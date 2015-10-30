@@ -25,6 +25,7 @@ public class SessionFilter implements Filter {
 		HttpSession session = req.getSession();
 
 		String path = req.getServletPath();
+		System.out.println(path);
 		if (session.getAttribute("user") == null && !path.equals("/login.action")) {
 			resp.sendRedirect(req.getContextPath() + "/login.html");
 			return;

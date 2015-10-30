@@ -50,4 +50,6 @@
 		<url-pattern>*.action</url-pattern>
 	</filter-mapping>
 
+	<distributable />
+
 </web-app>
