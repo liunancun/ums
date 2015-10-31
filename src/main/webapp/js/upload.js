@@ -28,8 +28,9 @@ function progress() {
 	// 延时2秒
 	setTimeout(function() {
 		// 更新进度
+		var url = $('#progress').attr('url');
 		$.ajax({
-			url : '/ums/progress.action',
+			url : url,
 			success : function(data) {
 				var width = 'min-width: 2em;width: ' + data + '%;';
 				var html = data + '%';
