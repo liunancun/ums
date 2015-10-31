@@ -33,7 +33,7 @@
 				</c:choose>
 				<c:forEach items="${usersPaginator.slider }" var="index">
 					<c:choose>
-						<c:when test="${usersPaginator.isDisabledPage(index) }">
+						<c:when test="${index eq usersPaginator.page }">
 							<li class="active">
 								<span>${index }</span>
 							</li>
