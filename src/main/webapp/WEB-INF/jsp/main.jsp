@@ -37,25 +37,25 @@
 					</ol>
 					<div class="carousel-inner">
 						<div class="item active">
-							<img src="img/main/0.jpg" />
+							<img src="img/main/0.jpg" width="100%" height="100%" />
 						</div>
 						<div class="item">
-							<img src="img/main/1.jpg" />
+							<img src="img/main/1.jpg" width="100%" height="100%" />
 						</div>
 						<div class="item">
-							<img src="img/main/2.jpg" />
+							<img src="img/main/2.jpg" width="100%" height="100%" />
 						</div>
 						<div class="item">
-							<img src="img/main/3.jpg" />
+							<img src="img/main/3.jpg" width="100%" height="100%" />
 						</div>
 						<div class="item">
-							<img src="img/main/4.jpg" />
+							<img src="img/main/4.jpg" width="100%" height="100%" />
 						</div>
 						<div class="item">
-							<img src="img/main/5.jpg" />
+							<img src="img/main/5.jpg" width="100%" height="100%" />
 						</div>
 						<div class="item">
-							<img src="img/main/6.jpg" />
+							<img src="img/main/6.jpg" width="100%" height="100%" />
 						</div>
 					</div>
 					<a class="left carousel-control" href="#main" data-slide="prev">
