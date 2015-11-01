@@ -13,7 +13,7 @@
 <%@ include file="../css.jsp"%>
 </head>
 <body>
-	<!-- 引入进度条页面 -->
+	<%-- 引入进度条页面 --%>
 	<%@ include file="../progress.jsp"%>
 	<%-- 引入页头文件 --%>
 	<%@ include file="../brand.jsp"%>
@@ -24,7 +24,7 @@
 			<%@ include file="../menu.jsp"%>
 
 			<div class="col-md-10 col-md-offset-2">
-				<!-- 查询条件开始 -->
+				<%-- 查询条件开始 --%>
 				<div class="panel panel-primary">
 					<div class="panel-heading">搜索条件</div>
 					<div class="panel-body">
@@ -68,9 +68,9 @@
 						</form>
 					</div>
 				</div>
-				<!-- 查询条件结束 -->
+				<%-- 查询条件结束 --%>
 
-				<!-- 功能按钮开始 -->
+				<%-- 功能按钮开始 --%>
 				<div class="mt10f pb10">
 					<button class="btn btn-primary" type="button"
 						url="<%=request.getContextPath()%>/user/initAdd.action"
@@ -85,9 +85,9 @@
 					<button class="btn btn-primary" type="button"
 						onclick="window.open('<%=request.getContextPath()%>/user/down.action')">下载模板</button>
 				</div>
-				<!-- 功能按钮结束 -->
+				<%-- 功能按钮结束 --%>
 
-				<!-- 查询结果开始 -->
+				<%-- 查询结果开始 --%>
 				<div class="panel panel-primary">
 					<div class="panel-heading">结果列表</div>
 					<table class="table table-bordered table-hover table-condensed">
@@ -138,15 +138,15 @@
 						</tbody>
 					</table>
 				</div>
-				<!-- 查询结果结束 -->
+				<%-- 查询结果结束 --%>
 
-				<!-- 引入分页页面文件 -->
+				<%-- 引入分页页面文件 --%>
 				<%@ include file="page.jsp"%>
 			</div>
 		</div>
 	</div>
 
-	<!-- 引入脚本文件 -->
+	<%-- 引入脚本文件 --%>
 	<%@ include file="../js.jsp"%>
 </body>
 </html>
