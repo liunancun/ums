@@ -8,7 +8,7 @@ CREATE TABLE T_USER (
   CREATETIME TIMESTAMP,
   DESC VARCHAR(512)
 );
-INSERT INTO T_USER  VALUES(0, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'true', now(),'admin');
+INSERT INTO T_USER  VALUES(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'true', now(),'admin');
 
 --初始化菜单表
 DROP TABLE IF EXISTS T_MENU;
@@ -18,6 +18,6 @@ CREATE TABLE T_MENU (
   URL VARCHAR(128),
   ADMIN VARCHAR(5)
 );
-INSERT INTO T_USER  VALUES('main', '主页', '/main.action', 'true');
-INSERT INTO T_USER  VALUES('data', '数据管理', '/data/list.action', 'true');
-INSERT INTO T_USER  VALUES('user', '用户管理', '/user/list.action', 'true');
+INSERT INTO T_MENU  VALUES(1, '主页', '/main.action', 'true');
+INSERT INTO T_MENU  VALUES(2, '数据管理', '/data/list.action', 'true');
+INSERT INTO T_MENU  VALUES(3, '用户管理', '/user/list.action', 'true');
