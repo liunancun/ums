@@ -7,7 +7,7 @@
 	<ul class="nav nav-menu">
 		<c:forEach items="${menus }" var="menu">
 			<li <c:if test="${menu.id eq menuId }">class="active"</c:if>>
-				<a href="${menu.url }">${menu.name }</a>
+				<a href="${pageContext.request.contextPath }${menu.url }">${menu.name }</a>
 			</li>
 		</c:forEach>
 		<li>

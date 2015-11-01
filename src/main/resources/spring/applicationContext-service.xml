@@ -6,5 +6,6 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="userService" class="com.lnc.ums.user.service.impl.UserServiceImpl" />
+	<bean id="menuService" class="com.lnc.ums.menu.service.impl.MenuServiceImpl" />
 
 </beans>
