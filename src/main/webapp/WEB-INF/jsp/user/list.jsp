@@ -10,18 +10,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>用户管理</title>
 <%-- 引入样式文件 --%>
-<%@ include file="../css.jsp"%>
+<%@ include file="../common/css.jsp"%>
 </head>
 <body>
 	<%-- 引入进度条页面 --%>
-	<%@ include file="../progress.jsp"%>
+	<%@ include file="../common/progress.jsp"%>
 	<%-- 引入页头文件 --%>
-	<%@ include file="../brand.jsp"%>
+	<%@ include file="../common/brand.jsp"%>
 
 	<div class="container-fluid">
 		<div class="row">
 			<%-- 引入菜单文件 --%>
-			<%@ include file="../menu.jsp"%>
+			<%@ include file="../common/menu.jsp"%>
 
 			<div class="col-md-10 col-md-offset-2">
 				<%-- 查询条件开始 --%>
@@ -147,6 +147,6 @@
 	</div>
 
 	<%-- 引入脚本文件 --%>
-	<%@ include file="../js.jsp"%>
+	<%@ include file="../common/js.jsp"%>
 </body>
 </html>

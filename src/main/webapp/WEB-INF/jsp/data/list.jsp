@@ -14,12 +14,12 @@
 </head>
 <body>
 	<%-- 引入页头文件 --%>
-	<%@ include file="../brand.jsp"%>
+	<%@ include file="../common/brand.jsp"%>
 
 	<div class="container-fluid">
 		<div class="row">
 			<%-- 引入菜单文件 --%>
-			<%@ include file="../menu.jsp"%>
+			<%@ include file="../common/menu.jsp"%>
 			
 			<div class="col-md-10 col-md-offset-2">
 				<div class="panel panel-primary">
