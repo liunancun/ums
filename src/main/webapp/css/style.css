@@ -59,6 +59,11 @@
 	height: 18px;
 }
 
+.oy200 {
+	height: 200px;
+	overflow: auto;
+}
+
 .pointer {
 	cursor: pointer;
 }
