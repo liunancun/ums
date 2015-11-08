@@ -5,6 +5,7 @@
 	<typeAliases>
 		<package name="com.lnc.ums.user.po" />
 		<package name="com.lnc.ums.menu.po" />
+		<package name="com.lnc.ums.role.po" />
 	</typeAliases>
 
 	<plugins>

@@ -7,5 +7,6 @@
 
 	<bean id="userService" class="com.lnc.ums.user.service.impl.UserServiceImpl" />
 	<bean id="menuService" class="com.lnc.ums.menu.service.impl.MenuServiceImpl" />
+	<bean id="roleService" class="com.lnc.ums.role.service.impl.RoleServiceImpl" />
 
 </beans>

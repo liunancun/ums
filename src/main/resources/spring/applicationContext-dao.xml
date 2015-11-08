@@ -36,7 +36,7 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<!-- 扫描的包路径 -->
 		<property name="basePackage"
-			value="com.lnc.ums.user.mapper,com.lnc.ums.menu.mapper" />
+			value="com.lnc.ums.user.mapper,com.lnc.ums.menu.mapper,com.lnc.ums.role.mapper" />
 	</bean>
 
 	<!-- 初始化数据库 -->

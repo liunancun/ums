@@ -9,6 +9,17 @@ CREATE TABLE T_MENU (
 INSERT INTO T_MENU  VALUES('main', '主页', '/main.action', 'false');
 INSERT INTO T_MENU  VALUES('data', '数据管理', '/data/list.action', 'false');
 INSERT INTO T_MENU  VALUES('user', '用户管理', '/user/list.action', 'true');
+INSERT INTO T_MENU  VALUES('role', '角色管理', '/role/list.action', 'true');
+
+-- 初始化角色表
+DROP TABLE IF EXISTS T_ROLE;
+CREATE TABLE T_ROLE (
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  NAME VARCHAR(64),
+  CREATETIME TIMESTAMP,
+  DESC VARCHAR(512)
+);
+INSERT INTO T_ROLE  VALUES(0, '管理员', now(), '系统管理员角色');
 
 --初始化用户表
 DROP TABLE IF EXISTS T_USER;

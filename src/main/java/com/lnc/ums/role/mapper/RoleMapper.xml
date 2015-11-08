@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lnc.ums.role.mapper.RoleMapper">
+
+	<select id="query" parameterType="RolePo" resultType="RolePo">
+		SELECT *
+		FROM T_ROLE
+		<where>
+			<if test="namelike !=null and namelike !=''">
+				AND NAME LIKE CONCAT('%','${namelike}','%' )
+			</if>
+			<if test="startTime !=null">
+				AND CREATETIME &gt;= #{startTime}
+			</if>
+			<if test="endTime !=null">
+				AND CREATETIME &lt;= #{endTime}
+			</if>
+		</where>
+		ORDER BY ID
+	</select>
+
+	<insert id="insert" parameterType="RolePo">
+		INSERT INTO T_ROLE
+		(
+		NAME,
+		CREATETIME,
+		DESC
+		)
+		VALUES
+		(
+		#{name},
+		now(),
+		#{desc}
+		)
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM T_ROLE WHERE
+		ID=#{id}
+	</delete>
+
+	<update id="update" parameterType="RolePo">
+		UPDATE T_ROLE SET
+		DESC=#{desc}
+		WHERE
+		ID=#{id}
+	</update>
+
+</mapper>
