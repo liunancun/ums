@@ -47,10 +47,6 @@
 	};
 
 	var data = [ {
-		id : 0,
-		pId : -1,
-		name : "菜单"
-	}, {
 		id : 1,
 		pId : 0,
 		name : "数据管理"
