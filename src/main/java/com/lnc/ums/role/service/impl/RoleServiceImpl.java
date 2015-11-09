@@ -35,6 +35,9 @@ public class RoleServiceImpl implements RoleService {
 
         RolePo role = roleMapper.queryById(id);
 
+        List<String> resources = roleMapper.queryResources(id);
+        role.setResources(resources);
+
         return role;
     }
 

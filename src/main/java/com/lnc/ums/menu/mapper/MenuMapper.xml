@@ -6,10 +6,17 @@
 		SELECT *
 		FROM T_MENU
 		<where>
-            <if test="admin !=null">
-                AND ADMIN = #{admin}
-            </if>
-        </where>
+			<if test="admin !=null">
+				AND ADMIN = #{admin}
+			</if>
+		</where>
+	</select>
+
+	<select id="query" parameterType="String" resultType="ResourcesPo">
+		SELECT *
+		FROM T_RESOURCES
+		WHERE
+		MENU_ID=#{menuId}
 	</select>
 
 </mapper>

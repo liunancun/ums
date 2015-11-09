@@ -2,6 +2,7 @@ package com.lnc.ums.role.po;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class RolePo implements Serializable {
 
@@ -20,6 +21,8 @@ public class RolePo implements Serializable {
     private Timestamp startTime;
 
     private Timestamp endTime;
+
+    private List<String> resources;
 
     public int getId() {
         return id;
@@ -75,6 +78,14 @@ public class RolePo implements Serializable {
 
     public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
+    }
+
+    public List<String> getResources() {
+        return resources;
+    }
+
+    public void setResources(List<String> resources) {
+        this.resources = resources;
     }
 
 }

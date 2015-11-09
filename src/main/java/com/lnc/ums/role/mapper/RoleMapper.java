@@ -19,4 +19,6 @@ public interface RoleMapper {
 
     void update(RolePo role);
 
+    List<String> queryResources(int id);
+
 }

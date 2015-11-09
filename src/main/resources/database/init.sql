@@ -11,6 +11,14 @@ INSERT INTO T_MENU  VALUES('data', '数据管理', '/data/list.action', 'false')
 INSERT INTO T_MENU  VALUES('user', '用户管理', '/user/list.action', 'true');
 INSERT INTO T_MENU  VALUES('role', '角色管理', '/role/list.action', 'true');
 
+-- 初始化资源表
+DROP TABLE IF EXISTS T_RESOURCES;
+CREATE TABLE T_RESOURCES (
+  ID VARCHAR(64) PRIMARY KEY,
+  NAME VARCHAR(64),
+  MENU_ID VARCHAR(64)
+);
+
 -- 初始化角色表
 DROP TABLE IF EXISTS T_ROLE;
 CREATE TABLE T_ROLE (
@@ -20,6 +28,13 @@ CREATE TABLE T_ROLE (
   DESC VARCHAR(512)
 );
 INSERT INTO T_ROLE  VALUES(0, '管理员', now(), '系统管理员角色');
+
+-- 初始化角色资源映射表
+DROP TABLE IF EXISTS T_ROLE_RESOURCES;
+CREATE TABLE T_ROLE_RESOURCES (
+  ROLE_ID INT,
+  RESOURCES_ID INT
+);
 
 --初始化用户表
 DROP TABLE IF EXISTS T_USER;

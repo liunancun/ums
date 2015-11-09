@@ -52,4 +52,12 @@
 		ID=#{id}
 	</update>
 
+	<select id="queryResources" parameterType="int" resultType="String">
+		SELECT
+		RESOURCES_ID
+		FROM T_ROLE_RESOURCES
+		WHERE
+		ROLE_ID=#{roleId}
+	</select>
+
 </mapper>
