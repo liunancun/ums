@@ -31,6 +31,14 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    public RolePo queryById(int id) {
+
+        RolePo role = roleMapper.queryById(id);
+
+        return role;
+    }
+
+    @Override
     public void save(RolePo role) {
         roleMapper.insert(role);
     }

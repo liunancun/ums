@@ -11,6 +11,8 @@ public interface RoleService {
 
     List<RolePo> query(RolePo role, PageBounds pageBounds);
 
+    RolePo queryById(int id);
+
     void save(RolePo role);
 
     void delete(int id);

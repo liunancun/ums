@@ -47,4 +47,40 @@ public class RoleController {
         return "redirect:list.action";
     }
 
+    @RequestMapping("view")
+    public String view(Model model, int id) {
+
+        RolePo role = roleService.queryById(id);
+
+        model.addAttribute("role", role);
+
+        return "role/view";
+    }
+
+    @RequestMapping("initEdit")
+    public String initEdit(Model model, int id) {
+
+        RolePo role = roleService.queryById(id);
+
+        model.addAttribute("role", role);
+
+        return "role/edit";
+    }
+
+    @RequestMapping("edit")
+    public String edit(RolePo role) {
+
+        roleService.update(role);
+
+        return "redirect:list.action";
+    }
+
+    @RequestMapping("delete")
+    public String delete(int id) {
+
+        roleService.delete(id);
+
+        return "redirect:list.action";
+    }
+
 }

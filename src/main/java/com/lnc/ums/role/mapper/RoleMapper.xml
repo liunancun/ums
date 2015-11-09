@@ -19,6 +19,12 @@
 		ORDER BY ID
 	</select>
 
+	<select id="queryById" parameterType="int" resultType="RolePo">
+		SELECT
+		*
+		FROM T_ROLE WHERE ID=#{id}
+	</select>
+
 	<insert id="insert" parameterType="RolePo">
 		INSERT INTO T_ROLE
 		(

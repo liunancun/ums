@@ -75,15 +75,6 @@
 					<button class="btn btn-primary" type="button"
 						url="<%=request.getContextPath()%>/role/initAdd.action"
 						onclick="Ums.modal.load(this)">添加</button>
-					<span class="btn btn-primary btn-file">
-						导入
-						<input type="file" name="userFile" onchange="upload(this)"
-							url="<%=request.getContextPath()%>/role/imp.action" />
-					</span>
-					<button class="btn btn-primary" type="button"
-						onclick="window.open('<%=request.getContextPath()%>/role/exp.action')">导出</button>
-					<button class="btn btn-primary" type="button"
-						onclick="window.open('<%=request.getContextPath()%>/role/down.action')">模板</button>
 				</div>
 				<%-- 功能按钮结束 --%>
 
@@ -148,5 +139,6 @@
 
 	<%-- 引入脚本文件 --%>
 	<%@ include file="../common/js.jsp"%>
+	<script src="../js/role.js"></script>
 </body>
 </html>
