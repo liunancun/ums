@@ -1,10 +1,10 @@
 package com.lnc.ums.role.mapper;
 
-import com.lnc.ums.role.po.RoleResourcesPo;
+import org.apache.ibatis.annotations.Param;
 
 public interface RoleResourcesMapper {
 
-    void insert(RoleResourcesPo roleResources);
+    void insert(@Param("roleId") int roleId, @Param("resourcesId") String resourcesId);
 
     void delete(int roleId);
 

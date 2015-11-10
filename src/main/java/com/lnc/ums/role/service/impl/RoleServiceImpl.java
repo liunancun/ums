@@ -13,7 +13,6 @@ import com.lnc.ums.role.mapper.RoleMapper;
 import com.lnc.ums.role.mapper.RoleResourcesMapper;
 import com.lnc.ums.role.po.ResourcesPo;
 import com.lnc.ums.role.po.RolePo;
-import com.lnc.ums.role.po.RoleResourcesPo;
 import com.lnc.ums.role.po.TreeNode;
 import com.lnc.ums.role.service.RoleService;
 
@@ -61,6 +60,15 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void save(RolePo role) {
         roleMapper.insert(role);
+
+        int roleId = role.getId();
+
+        roleResourcesMapper.delete(roleId);
+
+        List<String> resources = role.getResources();
+        for (String resourcesId : resources) {
+            roleResourcesMapper.insert(roleId, resourcesId);
+        }
     }
 
     @Override
@@ -79,10 +87,7 @@ public class RoleServiceImpl implements RoleService {
 
         List<String> resources = role.getResources();
         for (String resourcesId : resources) {
-            RoleResourcesPo roleResources = new RoleResourcesPo();
-            roleResources.setRoleId(roleId);
-            roleResources.setResourcesId(resourcesId);
-            roleResourcesMapper.insert(roleResources);
+            roleResourcesMapper.insert(roleId, resourcesId);
         }
     }
 

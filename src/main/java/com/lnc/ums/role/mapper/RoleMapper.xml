@@ -26,6 +26,9 @@
 	</select>
 
 	<insert id="insert" parameterType="RolePo">
+		<selectKey keyProperty="id" order="AFTER" resultType="int">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
 		INSERT INTO T_ROLE
 		(
 		NAME,
