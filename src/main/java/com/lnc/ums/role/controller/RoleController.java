@@ -9,8 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.lnc.ums.role.po.RolePo;
+import com.lnc.ums.role.po.TreeNode;
 import com.lnc.ums.role.service.RoleService;
 
 @Controller
@@ -35,7 +38,18 @@ public class RoleController {
     }
 
     @RequestMapping("initAdd")
-    public String initAdd() {
+    public String initAdd(Model model) {
+
+        List<TreeNode> treeNodes = roleService.queryTreeNodes();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String treeNode = objectMapper.writeValueAsString(treeNodes);
+            model.addAttribute("treeNode", treeNode);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
         return "role/add";
     }
 
@@ -63,6 +77,16 @@ public class RoleController {
         RolePo role = roleService.queryById(id);
 
         model.addAttribute("role", role);
+
+        List<TreeNode> treeNodes = roleService.queryTreeNodes(id);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String treeNode = objectMapper.writeValueAsString(treeNodes);
+            model.addAttribute("treeNode", treeNode);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
 
         return "role/edit";
     }

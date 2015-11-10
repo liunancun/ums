@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.lnc.ums.role.po.RolePo;
+import com.lnc.ums.role.po.TreeNode;
 
 public interface RoleService {
 
@@ -18,5 +19,9 @@ public interface RoleService {
     void delete(int id);
 
     void update(RolePo role);
+
+    List<TreeNode> queryTreeNodes();
+
+    List<TreeNode> queryTreeNodes(int id);
 
 }

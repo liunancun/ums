@@ -6,6 +6,6 @@ import com.lnc.ums.menu.po.MenuPo;
 
 public interface MenuMapper {
 
-    List<MenuPo> query(MenuPo menu);
+    List<MenuPo> query();
 
 }

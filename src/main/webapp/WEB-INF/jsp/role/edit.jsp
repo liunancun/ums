@@ -24,20 +24,21 @@
 					<textarea class="form-control" rows="5" name="desc">${role.desc }</textarea>
 				</div>
 				<label>权限</label>
-				<input id="selectIds" type="text" />
+				<input id="resources" name="resources" type="text" />
 				<div class="panel panel-default oy200">
 					<ul id="ztree" class="ztree"></ul>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-default" type="button" data-dismiss="modal">取消</button>
-				<button class="btn btn-primary" type="submit">提交</button>
+				<button class="btn btn-primary" type="submit"
+					onclick="jsonToString()">提交</button>
 			</div>
 		</form>
 	</div>
 </div>
 <script>
 	$(document).ready(function() {
-		$.fn.zTree.init($("#ztree"), setting, data);
+		$.fn.zTree.init($("#ztree"), setting, ${treeNode});
 	});
 </script>

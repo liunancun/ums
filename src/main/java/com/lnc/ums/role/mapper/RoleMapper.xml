@@ -54,10 +54,10 @@
 
 	<select id="queryResources" parameterType="int" resultType="String">
 		SELECT
-		RESOURCES_ID
+		RESOURCESID
 		FROM T_ROLE_RESOURCES
 		WHERE
-		ROLE_ID=#{roleId}
+		ROLEID=#{roleId}
 	</select>
 
 </mapper>

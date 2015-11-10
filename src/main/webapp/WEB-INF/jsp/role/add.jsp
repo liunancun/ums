@@ -23,7 +23,7 @@
 					<textarea class="form-control" rows="5" id="add_desc" name="desc"></textarea>
 				</div>
 				<label>权限</label>
-				<input id="selectIds" type="text" />
+				<input id="resources" name="resources" type="text" />
 				<div class="panel panel-default oy200">
 					<ul id="ztree" class="ztree"></ul>
 				</div>
@@ -38,6 +38,6 @@
 </div>
 <script>
 	$(document).ready(function() {
-		$.fn.zTree.init($("#ztree"), setting, data);
+		$.fn.zTree.init($("#ztree"), setting, ${treeNode});
 	});
 </script>

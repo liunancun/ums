@@ -16,13 +16,7 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public List<MenuPo> query(boolean admin) {
 
-        MenuPo menu = null;
-        if (!admin) {
-            menu = new MenuPo();
-            menu.setAdmin(false);
-        }
-
-        List<MenuPo> menus = menuMapper.query(menu);
+        List<MenuPo> menus = menuMapper.query();
 
         return menus;
     }

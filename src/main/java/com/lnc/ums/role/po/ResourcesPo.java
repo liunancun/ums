@@ -1,18 +1,18 @@
-package com.lnc.ums.menu.po;
+package com.lnc.ums.role.po;
 
 public class ResourcesPo {
 
-    private int id;
+    private String id;
 
     private String name;
 
     private String menuId;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
