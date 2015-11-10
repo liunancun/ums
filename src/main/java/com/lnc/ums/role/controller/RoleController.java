@@ -1,5 +1,6 @@
 package com.lnc.ums.role.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -67,6 +68,24 @@ public class RoleController {
         RolePo role = roleService.queryById(id);
 
         model.addAttribute("role", role);
+
+        List<TreeNode> treeNodes = roleService.queryTreeNodes(id);
+
+        List<TreeNode> removeNodes = new ArrayList<TreeNode>();
+        for (TreeNode treeNode : treeNodes) {
+            if (!treeNode.isChecked()) {
+                removeNodes.add(treeNode);
+            }
+        }
+        treeNodes.removeAll(removeNodes);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String treeNode = objectMapper.writeValueAsString(treeNodes);
+            model.addAttribute("treeNode", treeNode);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
 
         return "role/view";
     }

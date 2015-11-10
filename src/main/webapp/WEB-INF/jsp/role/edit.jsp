@@ -24,7 +24,7 @@
 					<textarea class="form-control" rows="5" name="desc">${role.desc }</textarea>
 				</div>
 				<label>权限</label>
-				<input id="resources" name="resources" type="text" />
+				<input id="resources" name="resources" type="hidden" />
 				<div class="panel panel-default oy200">
 					<ul id="ztree" class="ztree"></ul>
 				</div>
@@ -39,6 +39,6 @@
 </div>
 <script>
 	$(document).ready(function() {
-		$.fn.zTree.init($("#ztree"), setting, ${treeNode});
+		$.fn.zTree.init($("#ztree"), checkSetting, ${treeNode});
 	});
 </script>

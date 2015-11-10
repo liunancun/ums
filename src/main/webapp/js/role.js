@@ -1,7 +1,16 @@
-var setting = {
+var checkSetting = {
 	check : {
 		enable : true
 	},
+	data : {
+		simpleData : {
+			enable : true,
+			pIdKey : "pid"
+		}
+	}
+};
+
+var viewSetting = {
 	data : {
 		simpleData : {
 			enable : true,

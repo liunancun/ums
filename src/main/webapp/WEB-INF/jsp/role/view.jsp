@@ -35,6 +35,6 @@
 </div>
 <script>
 	$(document).ready(function() {
-		$.fn.zTree.init($("#ztree"), setting, data);
+		$.fn.zTree.init($("#ztree"), viewSetting, ${treeNode});
 	});
 </script>
