@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lnc.ums.common.utils.MD5;
 import com.lnc.ums.menu.po.MenuPo;
@@ -25,7 +26,7 @@ public class LoginController {
     @Resource
     private MenuService menuService;
 
-    @RequestMapping("login")
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, HttpSession session, String username, String password) {
 
         // 用户名密码必须输入
@@ -45,6 +46,11 @@ public class LoginController {
         }
 
         return "redirect:main.action";
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String login() {
+        return "login";
     }
 
 }

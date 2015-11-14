@@ -17,29 +17,28 @@ import javax.servlet.http.HttpSession;
  */
 public class SessionFilter implements Filter {
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
 
-		HttpServletRequest req = (HttpServletRequest) request;
-		HttpServletResponse resp = (HttpServletResponse) response;
-		HttpSession session = req.getSession();
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
+        HttpSession session = req.getSession();
 
-		String path = req.getServletPath();
-		System.out.println(path);
-		if (session.getAttribute("user") == null && !path.equals("/login.action")) {
-			resp.sendRedirect(req.getContextPath() + "/login.html");
-			return;
-		}
-		chain.doFilter(request, response);
-	}
+        String path = req.getServletPath();
+        if (session.getAttribute("user") == null && !path.equals("/login.action")) {
+            resp.sendRedirect(req.getContextPath() + "/login.action");
+            return;
+        }
+        chain.doFilter(request, response);
+    }
 
-	public SessionFilter() {
-	}
+    public SessionFilter() {
+    }
 
-	public void destroy() {
-	}
+    public void destroy() {
+    }
 
-	public void init(FilterConfig fConfig) throws ServletException {
-	}
+    public void init(FilterConfig fConfig) throws ServletException {
+    }
 
 }
