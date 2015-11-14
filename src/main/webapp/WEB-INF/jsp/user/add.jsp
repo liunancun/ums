@@ -13,18 +13,10 @@
 				<h4 class="modal-title">添加用户</h4>
 			</div>
 			<div class="modal-body">
-				<div class="row">
-					<div class="form-group col-md-6">
-						<label>用户名</label>
-						<input class="form-control" type="text" id="add_username"
-							name="username" required />
-					</div>
-					<div class="form-group col-md-6">
-						<label>管理员</label>
-						<div class="switch">
-							<input type="checkbox" id="add_admin" name="admin" value="true" />
-						</div>
-					</div>
+				<div class="form-group">
+					<label>用户名</label>
+					<input class="form-control" type="text" id="add_username"
+						name="username" required />
 				</div>
 				<div class="row">
 					<div class="form-group col-md-6">
@@ -49,10 +41,4 @@
 			</div>
 		</form>
 	</div>
-	<script type="text/javascript">
-		$(function() {
-			// 初始化开关组件
-			$('#modal').find('[type="checkbox"]').bootstrapSwitch();
-		});
-	</script>
 </div>

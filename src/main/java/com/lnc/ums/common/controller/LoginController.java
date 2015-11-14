@@ -39,8 +39,8 @@ public class LoginController {
                 // 保存用户信息到session
                 session.setAttribute("user", user);
 
-                // 根据用户信息查询其所属菜单
-                List<MenuBean> menus = menuService.query(user.isAdmin());
+                // 查询菜单
+                List<MenuBean> menus = menuService.query();
                 session.setAttribute("menus", menus);
             }
         }

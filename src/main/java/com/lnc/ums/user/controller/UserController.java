@@ -27,171 +27,165 @@ import com.lnc.ums.user.service.UserService;
 @RequestMapping("user")
 public class UserController {
 
-	@Resource
-	private UserService userService;
+    @Resource
+    private UserService userService;
 
-	@RequestMapping("list")
-	public String list(Model model, UserBean user, @RequestParam(required = false, defaultValue = "1") int page,
-			@RequestParam(required = false, defaultValue = "10") int limit) {
+    @RequestMapping("list")
+    public String list(Model model, UserBean user, @RequestParam(required = false, defaultValue = "1") int page,
+            @RequestParam(required = false, defaultValue = "10") int limit) {
 
-		// 设置当前菜单ID
-		model.addAttribute("menuId", "user");
+        // 设置当前菜单ID
+        model.addAttribute("menuId", "user");
 
-		List<UserBean> users = userService.query(user, new PageBounds(page, limit));
+        List<UserBean> users = userService.query(user, new PageBounds(page, limit));
 
-		model.addAttribute("users", users);
+        model.addAttribute("users", users);
 
-		return "user/list";
-	}
+        return "user/list";
+    }
 
-	@RequestMapping("initAdd")
-	public String initAdd() {
-		return "user/add";
-	}
+    @RequestMapping("initAdd")
+    public String initAdd() {
+        return "user/add";
+    }
 
-	@RequestMapping("add")
-	public String add(UserBean user) {
+    @RequestMapping("add")
+    public String add(UserBean user) {
 
-		userService.save(user);
+        userService.save(user);
 
-		return "redirect:list.action";
-	}
+        return "redirect:list.action";
+    }
 
-	@RequestMapping("view")
-	public String view(Model model, int id) {
+    @RequestMapping("view")
+    public String view(Model model, int id) {
 
-		UserBean user = userService.queryById(id);
+        UserBean user = userService.queryById(id);
 
-		model.addAttribute("user", user);
+        model.addAttribute("user", user);
 
-		return "user/view";
-	}
+        return "user/view";
+    }
 
-	@RequestMapping("initEdit")
-	public String initEdit(Model model, int id) {
+    @RequestMapping("initEdit")
+    public String initEdit(Model model, int id) {
 
-		UserBean user = userService.queryById(id);
+        UserBean user = userService.queryById(id);
 
-		model.addAttribute("user", user);
+        model.addAttribute("user", user);
 
-		return "user/edit";
-	}
+        return "user/edit";
+    }
 
-	@RequestMapping("edit")
-	public String edit(UserBean user) {
+    @RequestMapping("edit")
+    public String edit(UserBean user) {
 
-		userService.update(user);
+        userService.update(user);
 
-		return "redirect:list.action";
-	}
+        return "redirect:list.action";
+    }
 
-	@RequestMapping("delete")
-	public String delete(int id) {
+    @RequestMapping("delete")
+    public String delete(int id) {
 
-		userService.delete(id);
+        userService.delete(id);
 
-		return "redirect:list.action";
-	}
+        return "redirect:list.action";
+    }
 
-	@RequestMapping("imp")
-	public @ResponseBody String imp(HttpSession session, MultipartFile userFile) {
+    @RequestMapping("imp")
+    public @ResponseBody String imp(HttpSession session, MultipartFile userFile) {
 
-		// 重置上传进度
-		session.setAttribute("progress", 0);
+        // 重置上传进度
+        session.setAttribute("progress", 0);
 
-		List<Object[]> datas = null;
-		if (userFile != null) {
-			InputStream stream = null;
-			try {
-				stream = userFile.getInputStream();
-				datas = ExcelUtils.read(stream);
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				if (stream != null) {
-					try {
-						stream.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}
+        List<Object[]> datas = null;
+        if (userFile != null) {
+            InputStream stream = null;
+            try {
+                stream = userFile.getInputStream();
+                datas = ExcelUtils.read(stream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (stream != null) {
+                    try {
+                        stream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
 
-		if (datas != null) {
-			UserBean user = null;
-			for (Object[] data : datas) {
-				user = new UserBean();
-				user.setUsername(String.valueOf(data[0]));
-				user.setPassword(String.valueOf(data[1]));
-				user.setAdmin("是".equals(data[2]));
-				user.setDesc(String.valueOf(data[3]));
-				userService.save(user);
-			}
-		}
+        if (datas != null) {
+            UserBean user = null;
+            for (Object[] data : datas) {
+                user = new UserBean();
+                user.setUsername(String.valueOf(data[0]));
+                user.setPassword(String.valueOf(data[1]));
+                user.setDesc(String.valueOf(data[3]));
+                userService.save(user);
+            }
+        }
 
-		// 模拟上传进度
-		for (int i = 0; i <= 100; i += 5) {
-			session.setAttribute("progress", i);
-			System.out.println(i);
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+        // 模拟上传进度
+        for (int i = 0; i <= 100; i += 5) {
+            session.setAttribute("progress", i);
+            System.out.println(i);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
-		return "success";
-	}
+        return "success";
+    }
 
-	@RequestMapping("exp")
-	public void exp(HttpServletResponse response) {
+    @RequestMapping("exp")
+    public void exp(HttpServletResponse response) {
 
-		// 下载文件名字
-		String fileName = "用户列表_" + DateUtils.toString(DateUtils.currentTime(), "yyyyMMddHHmmss") + ".xls";
-		DownloadUtils.fileNameToResponse(response, fileName);
+        // 下载文件名字
+        String fileName = "用户列表_" + DateUtils.toString(DateUtils.currentTime(), "yyyyMMddHHmmss") + ".xls";
+        DownloadUtils.fileNameToResponse(response, fileName);
 
-		// 查询所有用户列表
-		List<UserBean> users = userService.query(null);
+        // 查询所有用户列表
+        List<UserBean> users = userService.query(null);
 
-		// 表格表头
-		String[] title = { "编号", "用户名", "是否管理员", "创建时间", "描述" };
-		List<Object[]> datas = new ArrayList<Object[]>();
-		for (UserBean user : users) {
-			Object[] data = new Object[title.length];
-			data[0] = user.getId();
-			data[1] = user.getUsername();
-			if (user.isAdmin()) {
-				data[2] = "是";
-			} else {
-				data[2] = "否";
-			}
-			data[3] = DateUtils.toString(user.getCreateTime());
-			data[4] = user.getDesc();
-			datas.add(data);
-		}
+        // 表格表头
+        String[] title = { "编号", "用户名", "创建时间", "描述" };
+        List<Object[]> datas = new ArrayList<Object[]>();
+        for (UserBean user : users) {
+            Object[] data = new Object[title.length];
+            data[0] = user.getId();
+            data[1] = user.getUsername();
+            data[2] = DateUtils.toString(user.getCreateTime());
+            data[3] = user.getDesc();
+            datas.add(data);
+        }
 
-		try {
-			ExcelUtils.write(title, datas, response.getOutputStream());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        try {
+            ExcelUtils.write(title, datas, response.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	@RequestMapping("down")
-	public void down(HttpServletResponse response) {
+    @RequestMapping("down")
+    public void down(HttpServletResponse response) {
 
-		// 下载文件名字
-		String fileName = "用户列表模板_" + DateUtils.toString(DateUtils.currentTime(), "yyyyMMddHHmmss") + ".xls";
-		DownloadUtils.fileNameToResponse(response, fileName);
+        // 下载文件名字
+        String fileName = "用户列表模板_" + DateUtils.toString(DateUtils.currentTime(), "yyyyMMddHHmmss") + ".xls";
+        DownloadUtils.fileNameToResponse(response, fileName);
 
-		// 表格表头
-		String[] title = { "用户名", "密码", "是否管理员" };
-		try {
-			ExcelUtils.write(title, null, response.getOutputStream());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        // 表格表头
+        String[] title = { "用户名", "密码" };
+        try {
+            ExcelUtils.write(title, null, response.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

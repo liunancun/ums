@@ -95,7 +95,6 @@
 							<tr class="active">
 								<th width="10%">编号</th>
 								<th width="15%">用户名</th>
-								<th width="10%">是否管理员</th>
 								<th width="20%">创建时间</th>
 								<th>描述</th>
 								<th width="15%">操作</th>
@@ -108,7 +107,6 @@
 										<tr>
 											<td title="${user.id }">${user.id }</td>
 											<td title="${user.username }">${user.username }</td>
-											<td title="${user.admin ? '是' : '否' }">${user.admin ? '是' : '否' }</td>
 											<td
 												title="<fmt:formatDate value='${user.createTime }' pattern='yyyy-MM-dd HH:mm:ss' />">
 												<fmt:formatDate value="${user.createTime }"

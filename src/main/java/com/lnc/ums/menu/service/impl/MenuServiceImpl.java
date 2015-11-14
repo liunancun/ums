@@ -14,7 +14,7 @@ public class MenuServiceImpl implements MenuService {
     private MenuMapper menuMapper;
 
     @Override
-    public List<MenuBean> query(boolean admin) {
+    public List<MenuBean> query() {
 
         List<MenuBean> menus = menuMapper.query();
 

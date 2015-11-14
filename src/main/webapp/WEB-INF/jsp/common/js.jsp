@@ -6,8 +6,6 @@
 <script src="../js/jquery-1.11.3.min.js"></script>
 <%-- 引入bootstrap组件 --%>
 <script src="../js/bootstrap.min.js"></script>
-<%-- 引入bootstrap开关组件 --%>
-<script src="../js/bootstrap-switch.min.js"></script>
 <%-- 引入bootstrap日期时间组件 --%>
 <script src="../js/bootstrap-datetimepicker.min.js"></script>
 <%-- 引入bootstrap日期时间组件中文国际化 --%>

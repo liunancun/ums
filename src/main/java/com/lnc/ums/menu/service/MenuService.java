@@ -6,6 +6,6 @@ import com.lnc.ums.menu.bean.MenuBean;
 
 public interface MenuService {
 
-    List<MenuBean> query(boolean admin);
+    List<MenuBean> query();
 
 }

@@ -13,8 +13,6 @@ public class UserBean implements Serializable {
 
     private String password;
 
-    private boolean admin;
-
     private Timestamp createTime;
 
     private String desc;
@@ -47,14 +45,6 @@ public class UserBean implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
     }
 
     public Timestamp getCreateTime() {
