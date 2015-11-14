@@ -6,14 +6,14 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
+import com.lnc.ums.menu.bean.MenuBean;
 import com.lnc.ums.menu.mapper.MenuMapper;
-import com.lnc.ums.menu.po.MenuPo;
+import com.lnc.ums.role.bean.ResourcesBean;
+import com.lnc.ums.role.bean.RoleBean;
+import com.lnc.ums.role.bean.TreeNode;
 import com.lnc.ums.role.mapper.ResourcesMapper;
 import com.lnc.ums.role.mapper.RoleMapper;
 import com.lnc.ums.role.mapper.RoleResourcesMapper;
-import com.lnc.ums.role.po.ResourcesPo;
-import com.lnc.ums.role.po.RolePo;
-import com.lnc.ums.role.po.TreeNode;
 import com.lnc.ums.role.service.RoleService;
 
 public class RoleServiceImpl implements RoleService {
@@ -31,25 +31,25 @@ public class RoleServiceImpl implements RoleService {
     private RoleResourcesMapper roleResourcesMapper;
 
     @Override
-    public List<RolePo> query(RolePo role) {
+    public List<RoleBean> query(RoleBean role) {
 
-        List<RolePo> roles = roleMapper.query(role);
-
-        return roles;
-    }
-
-    @Override
-    public List<RolePo> query(RolePo role, PageBounds pageBounds) {
-
-        List<RolePo> roles = roleMapper.query(role, pageBounds);
+        List<RoleBean> roles = roleMapper.query(role);
 
         return roles;
     }
 
     @Override
-    public RolePo queryById(int id) {
+    public List<RoleBean> query(RoleBean role, PageBounds pageBounds) {
 
-        RolePo role = roleMapper.queryById(id);
+        List<RoleBean> roles = roleMapper.query(role, pageBounds);
+
+        return roles;
+    }
+
+    @Override
+    public RoleBean queryById(int id) {
+
+        RoleBean role = roleMapper.queryById(id);
 
         List<String> resources = roleMapper.queryResources(id);
         role.setResources(resources);
@@ -58,7 +58,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void save(RolePo role) {
+    public void save(RoleBean role) {
         roleMapper.insert(role);
 
         int roleId = role.getId();
@@ -77,7 +77,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void update(RolePo role) {
+    public void update(RoleBean role) {
 
         roleMapper.update(role);
 
@@ -96,9 +96,9 @@ public class RoleServiceImpl implements RoleService {
 
         List<TreeNode> treeNodes = new ArrayList<TreeNode>();
 
-        List<MenuPo> menus = menuMapper.query();
+        List<MenuBean> menus = menuMapper.query();
         if (menus != null) {
-            for (MenuPo menu : menus) {
+            for (MenuBean menu : menus) {
                 TreeNode treeNode = new TreeNode();
                 treeNode.setId(menu.getId());
                 treeNode.setName(menu.getName());
@@ -106,9 +106,9 @@ public class RoleServiceImpl implements RoleService {
             }
         }
 
-        List<ResourcesPo> resourcess = resourcesMapper.query();
+        List<ResourcesBean> resourcess = resourcesMapper.query();
         if (resourcess != null) {
-            for (ResourcesPo resources : resourcess) {
+            for (ResourcesBean resources : resourcess) {
                 TreeNode treeNode = new TreeNode();
                 treeNode.setId(resources.getId());
                 treeNode.setName(resources.getName());
@@ -127,9 +127,9 @@ public class RoleServiceImpl implements RoleService {
 
         List<String> ids = roleMapper.queryResources(id);
 
-        List<ResourcesPo> resourcess = resourcesMapper.query();
+        List<ResourcesBean> resourcess = resourcesMapper.query();
         if (resourcess != null) {
-            for (ResourcesPo resources : resourcess) {
+            for (ResourcesBean resources : resourcess) {
                 TreeNode treeNode = new TreeNode();
                 treeNode.setId(resources.getId());
                 treeNode.setName(resources.getName());
@@ -142,9 +142,9 @@ public class RoleServiceImpl implements RoleService {
             }
         }
 
-        List<MenuPo> menus = menuMapper.query();
+        List<MenuBean> menus = menuMapper.query();
         if (menus != null) {
-            for (MenuPo menu : menus) {
+            for (MenuBean menu : menus) {
                 TreeNode treeNode = new TreeNode();
                 treeNode.setId(menu.getId());
                 treeNode.setName(menu.getName());

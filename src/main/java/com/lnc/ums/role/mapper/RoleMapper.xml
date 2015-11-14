@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lnc.ums.role.mapper.RoleMapper">
 
-	<select id="query" parameterType="RolePo" resultType="RolePo">
+	<select id="query" parameterType="RoleBean" resultType="RoleBean">
 		SELECT *
 		FROM T_ROLE
 		<where>
@@ -19,13 +19,13 @@
 		ORDER BY ID
 	</select>
 
-	<select id="queryById" parameterType="int" resultType="RolePo">
+	<select id="queryById" parameterType="int" resultType="RoleBean">
 		SELECT
 		*
 		FROM T_ROLE WHERE ID=#{id}
 	</select>
 
-	<insert id="insert" parameterType="RolePo">
+	<insert id="insert" parameterType="RoleBean">
 		<selectKey keyProperty="id" order="AFTER" resultType="int">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
@@ -48,7 +48,7 @@
 		ID=#{id}
 	</delete>
 
-	<update id="update" parameterType="RolePo">
+	<update id="update" parameterType="RoleBean">
 		UPDATE T_ROLE SET
 		DESC=#{desc}
 		WHERE

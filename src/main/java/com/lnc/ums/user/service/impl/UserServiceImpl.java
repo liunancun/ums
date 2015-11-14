@@ -9,8 +9,8 @@ import org.springframework.util.StringUtils;
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.lnc.ums.common.utils.DateUtils;
 import com.lnc.ums.common.utils.MD5;
+import com.lnc.ums.user.bean.UserBean;
 import com.lnc.ums.user.mapper.UserMapper;
-import com.lnc.ums.user.po.UserPo;
 import com.lnc.ums.user.service.UserService;
 
 public class UserServiceImpl implements UserService {
@@ -19,11 +19,11 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
-	public List<UserPo> query(UserPo user) {
+	public List<UserBean> query(UserBean user) {
 
-		List<UserPo> users = userMapper.query(user);
+		List<UserBean> users = userMapper.query(user);
 
-		for (UserPo po : users) {
+		for (UserBean po : users) {
 			String desc = po.getDesc();
 			desc = desc.replaceAll("\r\n", "<br>");
 			po.setDesc(desc);
@@ -33,11 +33,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserPo> query(UserPo user, PageBounds pageBounds) {
+	public List<UserBean> query(UserBean user, PageBounds pageBounds) {
 
-		List<UserPo> users = userMapper.query(user, pageBounds);
+		List<UserBean> users = userMapper.query(user, pageBounds);
 
-		for (UserPo po : users) {
+		for (UserBean po : users) {
 			String desc = po.getDesc();
 			desc = desc.replaceAll("\r\n", "<br>");
 			po.setDesc(desc);
@@ -47,9 +47,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserPo queryById(int id) {
+	public UserBean queryById(int id) {
 
-		UserPo user = userMapper.queryById(id);
+		UserBean user = userMapper.queryById(id);
 
 		String desc = user.getDesc();
 		desc = desc.replaceAll("\n", "<br>");
@@ -59,15 +59,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserPo queryByUsername(String username) {
+	public UserBean queryByUsername(String username) {
 
-		UserPo user = userMapper.queryByUsername(username);
+		UserBean user = userMapper.queryByUsername(username);
 
 		return user;
 	}
 
 	@Override
-	public void save(UserPo user) {
+	public void save(UserBean user) {
 
 		// 使用MD5加密密码
 		String password = user.getPassword();
@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void update(UserPo user) {
+	public void update(UserBean user) {
 
 		// 使用MD5加密密码
 		String password = user.getPassword();

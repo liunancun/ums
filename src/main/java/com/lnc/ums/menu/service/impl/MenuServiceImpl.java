@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.lnc.ums.menu.bean.MenuBean;
 import com.lnc.ums.menu.mapper.MenuMapper;
-import com.lnc.ums.menu.po.MenuPo;
 import com.lnc.ums.menu.service.MenuService;
 
 public class MenuServiceImpl implements MenuService {
@@ -14,9 +14,9 @@ public class MenuServiceImpl implements MenuService {
     private MenuMapper menuMapper;
 
     @Override
-    public List<MenuPo> query(boolean admin) {
+    public List<MenuBean> query(boolean admin) {
 
-        List<MenuPo> menus = menuMapper.query();
+        List<MenuBean> menus = menuMapper.query();
 
         return menus;
     }

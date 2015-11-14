@@ -2,10 +2,10 @@ package com.lnc.ums.menu.mapper;
 
 import java.util.List;
 
-import com.lnc.ums.menu.po.MenuPo;
+import com.lnc.ums.menu.bean.MenuBean;
 
 public interface MenuMapper {
 
-    List<MenuPo> query();
+    List<MenuBean> query();
 
 }

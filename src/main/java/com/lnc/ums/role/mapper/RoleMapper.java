@@ -3,21 +3,21 @@ package com.lnc.ums.role.mapper;
 import java.util.List;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
-import com.lnc.ums.role.po.RolePo;
+import com.lnc.ums.role.bean.RoleBean;
 
 public interface RoleMapper {
 
-    List<RolePo> query(RolePo role);
+    List<RoleBean> query(RoleBean role);
 
-    List<RolePo> query(RolePo role, PageBounds pageBounds);
+    List<RoleBean> query(RoleBean role, PageBounds pageBounds);
 
-    RolePo queryById(int id);
+    RoleBean queryById(int id);
 
-    void insert(RolePo role);
+    void insert(RoleBean role);
 
     void delete(int id);
 
-    void update(RolePo role);
+    void update(RoleBean role);
 
     List<String> queryResources(int id);
 

@@ -20,7 +20,7 @@ import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.lnc.ums.common.utils.DateUtils;
 import com.lnc.ums.common.utils.DownloadUtils;
 import com.lnc.ums.common.utils.ExcelUtils;
-import com.lnc.ums.user.po.UserPo;
+import com.lnc.ums.user.bean.UserBean;
 import com.lnc.ums.user.service.UserService;
 
 @Controller
@@ -31,13 +31,13 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping("list")
-	public String list(Model model, UserPo user, @RequestParam(required = false, defaultValue = "1") int page,
+	public String list(Model model, UserBean user, @RequestParam(required = false, defaultValue = "1") int page,
 			@RequestParam(required = false, defaultValue = "10") int limit) {
 
 		// 设置当前菜单ID
 		model.addAttribute("menuId", "user");
 
-		List<UserPo> users = userService.query(user, new PageBounds(page, limit));
+		List<UserBean> users = userService.query(user, new PageBounds(page, limit));
 
 		model.addAttribute("users", users);
 
@@ -50,7 +50,7 @@ public class UserController {
 	}
 
 	@RequestMapping("add")
-	public String add(UserPo user) {
+	public String add(UserBean user) {
 
 		userService.save(user);
 
@@ -60,7 +60,7 @@ public class UserController {
 	@RequestMapping("view")
 	public String view(Model model, int id) {
 
-		UserPo user = userService.queryById(id);
+		UserBean user = userService.queryById(id);
 
 		model.addAttribute("user", user);
 
@@ -70,7 +70,7 @@ public class UserController {
 	@RequestMapping("initEdit")
 	public String initEdit(Model model, int id) {
 
-		UserPo user = userService.queryById(id);
+		UserBean user = userService.queryById(id);
 
 		model.addAttribute("user", user);
 
@@ -78,7 +78,7 @@ public class UserController {
 	}
 
 	@RequestMapping("edit")
-	public String edit(UserPo user) {
+	public String edit(UserBean user) {
 
 		userService.update(user);
 
@@ -119,9 +119,9 @@ public class UserController {
 		}
 
 		if (datas != null) {
-			UserPo user = null;
+			UserBean user = null;
 			for (Object[] data : datas) {
-				user = new UserPo();
+				user = new UserBean();
 				user.setUsername(String.valueOf(data[0]));
 				user.setPassword(String.valueOf(data[1]));
 				user.setAdmin("是".equals(data[2]));
@@ -152,12 +152,12 @@ public class UserController {
 		DownloadUtils.fileNameToResponse(response, fileName);
 
 		// 查询所有用户列表
-		List<UserPo> users = userService.query(null);
+		List<UserBean> users = userService.query(null);
 
 		// 表格表头
 		String[] title = { "编号", "用户名", "是否管理员", "创建时间", "描述" };
 		List<Object[]> datas = new ArrayList<Object[]>();
-		for (UserPo user : users) {
+		for (UserBean user : users) {
 			Object[] data = new Object[title.length];
 			data[0] = user.getId();
 			data[1] = user.getUsername();

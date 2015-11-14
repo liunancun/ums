@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
-import com.lnc.ums.role.po.RolePo;
-import com.lnc.ums.role.po.TreeNode;
+import com.lnc.ums.role.bean.RoleBean;
+import com.lnc.ums.role.bean.TreeNode;
 import com.lnc.ums.role.service.RoleService;
 
 @Controller
@@ -25,13 +25,13 @@ public class RoleController {
     private RoleService roleService;
 
     @RequestMapping("list")
-    public String list(Model model, RolePo role, @RequestParam(required = false, defaultValue = "1") int page,
+    public String list(Model model, RoleBean role, @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10") int limit) {
 
         // 设置当前菜单ID
         model.addAttribute("menuId", "role");
 
-        List<RolePo> roles = roleService.query(role, new PageBounds(page, limit));
+        List<RoleBean> roles = roleService.query(role, new PageBounds(page, limit));
 
         model.addAttribute("roles", roles);
 
@@ -55,7 +55,7 @@ public class RoleController {
     }
 
     @RequestMapping("add")
-    public String add(RolePo role) {
+    public String add(RoleBean role) {
 
         roleService.save(role);
 
@@ -65,7 +65,7 @@ public class RoleController {
     @RequestMapping("view")
     public String view(Model model, int id) {
 
-        RolePo role = roleService.queryById(id);
+        RoleBean role = roleService.queryById(id);
 
         model.addAttribute("role", role);
 
@@ -93,7 +93,7 @@ public class RoleController {
     @RequestMapping("initEdit")
     public String initEdit(Model model, int id) {
 
-        RolePo role = roleService.queryById(id);
+        RoleBean role = roleService.queryById(id);
 
         model.addAttribute("role", role);
 
@@ -111,7 +111,7 @@ public class RoleController {
     }
 
     @RequestMapping("edit")
-    public String edit(RolePo role) {
+    public String edit(RoleBean role) {
 
         roleService.update(role);
 

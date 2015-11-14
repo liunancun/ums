@@ -1,28 +1,29 @@
-package com.lnc.ums.role.po;
+package com.lnc.ums.user.bean;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.List;
 
-public class RolePo implements Serializable {
+public class UserBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private int id;
 
-    private String name;
+    private String username;
+
+    private String password;
+
+    private boolean admin;
 
     private Timestamp createTime;
 
     private String desc;
 
-    private String namelike;
+    private String usernamelike;
 
     private Timestamp startTime;
 
     private Timestamp endTime;
-
-    private List<String> resources;
 
     public int getId() {
         return id;
@@ -32,20 +33,28 @@ public class RolePo implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getPassword() {
+        return password;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     public Timestamp getCreateTime() {
@@ -56,12 +65,20 @@ public class RolePo implements Serializable {
         this.createTime = createTime;
     }
 
-    public String getNamelike() {
-        return namelike;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setNamelike(String namelike) {
-        this.namelike = namelike;
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getUsernamelike() {
+        return usernamelike;
+    }
+
+    public void setUsernamelike(String usernamelike) {
+        this.usernamelike = usernamelike;
     }
 
     public Timestamp getStartTime() {
@@ -78,14 +95,6 @@ public class RolePo implements Serializable {
 
     public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
-    }
-
-    public List<String> getResources() {
-        return resources;
-    }
-
-    public void setResources(List<String> resources) {
-        this.resources = resources;
     }
 
 }

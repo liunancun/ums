@@ -2,10 +2,10 @@ package com.lnc.ums.menu.service;
 
 import java.util.List;
 
-import com.lnc.ums.menu.po.MenuPo;
+import com.lnc.ums.menu.bean.MenuBean;
 
 public interface MenuService {
 
-    List<MenuPo> query(boolean admin);
+    List<MenuBean> query(boolean admin);
 
 }

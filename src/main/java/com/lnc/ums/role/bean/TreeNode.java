@@ -1,4 +1,4 @@
-package com.lnc.ums.role.po;
+package com.lnc.ums.role.bean;
 
 public class TreeNode {
 

@@ -1,12 +1,16 @@
-package com.lnc.ums.role.po;
+package com.lnc.ums.menu.bean;
 
-public class ResourcesPo {
+import java.io.Serializable;
+
+public class MenuBean implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String id;
 
     private String name;
 
-    private String menuId;
+    private String url;
 
     public String getId() {
         return id;
@@ -24,12 +28,12 @@ public class ResourcesPo {
         this.name = name;
     }
 
-    public String getMenuId() {
-        return menuId;
+    public String getUrl() {
+        return url;
     }
 
-    public void setMenuId(String menuId) {
-        this.menuId = menuId;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 }

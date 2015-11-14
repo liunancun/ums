@@ -3,22 +3,22 @@ package com.lnc.ums.user.mapper;
 import java.util.List;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
-import com.lnc.ums.user.po.UserPo;
+import com.lnc.ums.user.bean.UserBean;
 
 public interface UserMapper {
 
-	List<UserPo> query(UserPo user);
+    List<UserBean> query(UserBean user);
 
-	List<UserPo> query(UserPo user, PageBounds pageBounds);
+    List<UserBean> query(UserBean user, PageBounds pageBounds);
 
-	UserPo queryById(int id);
+    UserBean queryById(int id);
 
-	UserPo queryByUsername(String username);
+    UserBean queryByUsername(String username);
 
-	void insert(UserPo user);
+    void insert(UserBean user);
 
-	void delete(int id);
+    void delete(int id);
 
-	void update(UserPo user);
+    void update(UserBean user);
 
 }
