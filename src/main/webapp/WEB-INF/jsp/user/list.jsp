@@ -83,7 +83,7 @@
 					<button class="btn btn-primary" type="button"
 						onclick="window.open('<%=request.getContextPath()%>/user/exp.action')">导出</button>
 					<button class="btn btn-primary" type="button"
-						onclick="window.open('<%=request.getContextPath()%>/user/down.action')">下载模板</button>
+						onclick="window.open('<%=request.getContextPath()%>/user/down.action')">模板</button>
 				</div>
 				<%-- 功能按钮结束 --%>
 
