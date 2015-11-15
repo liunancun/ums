@@ -31,7 +31,11 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("main")
-    public String main() {
+    public String main(Model model, UserBean user) {
+
+        List<UserBean> users = userService.query(user, new PageBounds(1, 10));
+
+        model.addAttribute("users", users);
 
         return "user/main";
     }

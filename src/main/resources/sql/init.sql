@@ -40,6 +40,17 @@ CREATE TABLE T_ROLE (
 );
 INSERT INTO T_ROLE  VALUES(0, '管理员', now(), '系统管理员角色');
 INSERT INTO T_ROLE  VALUES(1, '普通用户', now(), '普通用户角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
+INSERT INTO T_ROLE  VALUES(null, '测试角色', now(), '测试角色');
 
 -- 初始化角色资源映射表
 DROP TABLE IF EXISTS T_ROLE_RESOURCES;
@@ -78,6 +89,16 @@ CREATE TABLE T_USER (
 );
 INSERT INTO T_USER  VALUES(0, 'admin', '21232f297a57a5a743894a0e4a801fc3', now(),'admin');
 INSERT INTO T_USER  VALUES(1, 'ums', '21232f297a57a5a743894a0e4a801fc3', now(),'ums');
+INSERT INTO T_USER  VALUES(null, '测试用户1', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
+INSERT INTO T_USER  VALUES(null, '测试用户2', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
+INSERT INTO T_USER  VALUES(null, '测试用户3', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
+INSERT INTO T_USER  VALUES(null, '测试用户4', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
+INSERT INTO T_USER  VALUES(null, '测试用户5', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
+INSERT INTO T_USER  VALUES(null, '测试用户6', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
+INSERT INTO T_USER  VALUES(null, '测试用户7', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
+INSERT INTO T_USER  VALUES(null, '测试用户8', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
+INSERT INTO T_USER  VALUES(null, '测试用户9', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
+INSERT INTO T_USER  VALUES(null, '测试用户0', '21232f297a57a5a743894a0e4a801fc3', now(),'测试用户');
 
 -- 初始化用户角色映射表
 DROP TABLE IF EXISTS T_USER_ROLE;

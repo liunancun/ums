@@ -14,3 +14,24 @@ Ums.modal = {
 		});
 	}
 };
+
+Ums.list = {
+	search : function() {
+		// 获取查询链接
+		var url = $('#search').attr('action');
+		// 获取查询条件
+		var data = $('#search').serialize();
+		// 加载查询结果
+		$('#list').load(url, data);
+	},
+	page : function(page) {
+		// 设置页数
+		$('#page').find('input:first').val(page);
+		// 获取查询链接
+		var url = $('#page').attr('action');
+		// 获取查询条件
+		var data = $('#page').serialize();
+		// 加载查询结果
+		$('#list').load(url, data);
+	}
+};

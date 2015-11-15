@@ -25,7 +25,11 @@ public class RoleController {
     private RoleService roleService;
 
     @RequestMapping("main")
-    public String main() {
+    public String main(Model model, RoleBean role) {
+
+        List<RoleBean> roles = roleService.query(role, new PageBounds(1, 10));
+
+        model.addAttribute("roles", roles);
 
         return "role/main";
     }
@@ -33,9 +37,6 @@ public class RoleController {
     @RequestMapping("list")
     public String list(Model model, RoleBean role, @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10") int limit) {
-
-        // 设置当前菜单ID
-        model.addAttribute("menuId", "role");
 
         List<RoleBean> roles = roleService.query(role, new PageBounds(page, limit));
 
