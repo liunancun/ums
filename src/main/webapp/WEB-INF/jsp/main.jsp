@@ -24,16 +24,16 @@
 			<%-- 引入菜单文件 --%>
 			<%@ include file="common/menu.jsp"%>
 			<%-- 主页轮播图片 --%>
-			<div class="col-md-10 col-md-offset-2">
-				<div id="main" class="carousel slide" data-ride="carousel">
+			<div id="main" class="col-md-10 col-md-offset-2">
+				<div id="image" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">
-						<li data-target="#main" data-slide-to="0" class="active"></li>
-						<li data-target="#main" data-slide-to="1"></li>
-						<li data-target="#main" data-slide-to="2"></li>
-						<li data-target="#main" data-slide-to="3"></li>
-						<li data-target="#main" data-slide-to="4"></li>
-						<li data-target="#main" data-slide-to="5"></li>
-						<li data-target="#main" data-slide-to="6"></li>
+						<li data-target="#image" data-slide-to="0" class="active"></li>
+						<li data-target="#image" data-slide-to="1"></li>
+						<li data-target="#image" data-slide-to="2"></li>
+						<li data-target="#image" data-slide-to="3"></li>
+						<li data-target="#image" data-slide-to="4"></li>
+						<li data-target="#image" data-slide-to="5"></li>
+						<li data-target="#image" data-slide-to="6"></li>
 					</ol>
 					<div class="carousel-inner">
 						<div class="item active">
@@ -58,10 +58,10 @@
 							<img src="img/main/6.jpg" width="100%" height="100%" />
 						</div>
 					</div>
-					<a class="left carousel-control" href="#main" data-slide="prev">
+					<a class="left carousel-control" href="#image" data-slide="prev">
 						<span class="glyphicon glyphicon-chevron-left"></span>
 					</a>
-					<a class="right carousel-control" href="#main" data-slide="next">
+					<a class="right carousel-control" href="#image" data-slide="next">
 						<span class="glyphicon glyphicon-chevron-right"></span>
 					</a>
 				</div>
