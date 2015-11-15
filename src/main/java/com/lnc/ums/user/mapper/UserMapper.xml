@@ -36,7 +36,6 @@
 		(
 		USERNAME,
 		PASSWORD,
-		ADMIN,
 		CREATETIME,
 		DESC
 		)
@@ -44,7 +43,6 @@
 		(
 		#{username},
 		#{password},
-		#{admin},
 		now(),
 		#{desc}
 		)
@@ -57,7 +55,7 @@
 
 	<update id="update" parameterType="UserBean">
 		UPDATE T_USER SET
-		DESC=#{desc} ,ADMIN=#{admin}
+		DESC=#{desc}
 		<if test="password != null and password != ''">
 			,PASSWORD=#{password}
 		</if>
