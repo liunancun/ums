@@ -13,9 +13,7 @@
 <%-- 引入zTree组件 --%>
 <script src="../js/jquery.ztree.all-3.5.min.js"></script>
 <%-- 引入自定义脚本 --%>
-<script src="../js/ums.js"></script>
 <script src="../js/upload.js"></script>
-<script src="../js/page.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/user.js"></script>
-<script src="../js/role.js"></script>
+<script src="../js/ums/main.js"></script>
+<script src="../js/ums/user.js"></script>
+<script src="../js/ums/role.js"></script>
