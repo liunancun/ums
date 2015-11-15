@@ -16,41 +16,59 @@ Ums.modal = {
 };
 
 Ums.list = {
-	data : $('#search').serialize(),
+	// 查询条件
+	data : '',
+	// 页码条件
+	index : 1,
+	// 搜索数据
 	search : function() {
-		// 获取查询链接
-		var url = $('#search').attr('action');
-		// 获取查询条件
+		// 缓存查询条件
 		Ums.list.data = $('#search').serialize();
-		// 加载查询结果
-		$('#list').load(url, Ums.list.data);
+		// 执行查询
+		Ums.list.query();
 	},
-	page : function(page) {
+	// 分页查询
+	page : function(index) {
+		// 缓存页码条件
+		Ums.list.index = index;
+		// 执行查询
+		Ums.list.query();
+	},
+	// 查询数据
+	query : function() {
 		// 获取查询链接
 		var url = $('#search').attr('action');
-		// 拼接查询条件
-		url += "?page=" + page;
+		// 拼接页码条件
+		url += "?page=" + Ums.list.index;
 		// 加载查询结果
 		$('#list').load(url, Ums.list.data);
 	},
+	// 添加数据
 	add : function() {
 		// 获取添加链接
 		var url = $('#add').attr('action');
 		// 获取添加数据
 		var data = $('#add').serialize();
-		// 提交添加
+		// 执行添加
 		$.post(url, data);
-		// 刷新页面
-		Ums.list.page(1);
+
+		// 执行查询
+		Ums.list.query();
 	},
+	// 编辑数据
 	edit : function() {
 		// 获取编辑链接
 		var url = $('#edit').attr('action');
 		// 获取编辑数据
 		var data = $('#edit').serialize();
-		// 提交编辑
+		// 执行编辑
 		$.post(url, data);
-		// 刷新页面
-		Ums.list.page(1);
+
+		// 执行查询
+		Ums.list.query();
+	},
+	// 删除数据
+	del : function() {
+
 	}
 };
