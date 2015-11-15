@@ -56,15 +56,7 @@
 
 <%-- 分页控件开始 --%>
 <c:if test="${not empty roles }">
-	<form id="page" class="row mt10f" method="post"
-		action="<%=request.getContextPath()%>/user/list.action">
-		<%-- 隐藏域 --%>
-		<input name="page" type="hidden" />
-		<input name="namelike" type="hidden" value="${param.namelike }" />
-		<input name="startTime" type="hidden"
-			value="<fmt:formatDate value='${startTime }' pattern='yyyy-MM-dd HH:mm:ss' />" />
-		<input name="endTime" type="hidden"
-			value="<fmt:formatDate value='${endTime }' pattern='yyyy-MM-dd HH:mm:ss' />" />
+	<div class="row mt10f">
 		<%-- 分页详情 --%>
 		<div class="col-md-6">
 			<p class="text-primary">显示${rolesPaginator.startRow }-${rolesPaginator.endRow }条，共${rolesPaginator.totalCount }条</p>
@@ -115,6 +107,6 @@
 				</ul>
 			</nav>
 		</div>
-	</form>
+	</div>
 </c:if>
 <%-- 分页控件结束 --%>

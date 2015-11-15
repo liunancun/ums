@@ -56,16 +56,7 @@
 
 <%-- 分页控件开始 --%>
 <c:if test="${not empty users }">
-	<form id="page" class="row mt10f" method="post"
-		action="<%=request.getContextPath()%>/user/list.action">
-		<%-- 隐藏域 --%>
-		<input name="page" type="hidden" />
-		<input name="usernamelike" type="hidden"
-			value="${param.usernamelike }" />
-		<input name="startTime" type="hidden"
-			value="<fmt:formatDate value='${startTime }' pattern='yyyy-MM-dd HH:mm:ss' />" />
-		<input name="endTime" type="hidden"
-			value="<fmt:formatDate value='${endTime }' pattern='yyyy-MM-dd HH:mm:ss' />" />
+	<div class="row mt10f">
 		<%-- 分页详情 --%>
 		<div class="col-md-6">
 			<p class="text-primary">显示${usersPaginator.startRow }-${usersPaginator.endRow }条，共${usersPaginator.totalCount }条</p>
@@ -116,6 +107,6 @@
 				</ul>
 			</nav>
 		</div>
-	</form>
+	</div>
 </c:if>
 <%-- 分页控件结束 --%>

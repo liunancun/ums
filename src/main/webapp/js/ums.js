@@ -16,22 +16,21 @@ Ums.modal = {
 };
 
 Ums.list = {
+	data : $('#search').serialize(),
 	search : function() {
 		// 获取查询链接
 		var url = $('#search').attr('action');
 		// 获取查询条件
-		var data = $('#search').serialize();
+		Ums.list.data = $('#search').serialize();
 		// 加载查询结果
-		$('#list').load(url, data);
+		$('#list').load(url, Ums.list.data);
 	},
 	page : function(page) {
-		// 设置页数
-		$('#page').find('input:first').val(page);
 		// 获取查询链接
-		var url = $('#page').attr('action');
-		// 获取查询条件
-		var data = $('#page').serialize();
+		var url = $('#search').attr('action');
+		// 拼接查询条件
+		url += "?page=" + page;
 		// 加载查询结果
-		$('#list').load(url, data);
+		$('#list').load(url, Ums.list.data);
 	}
 };
