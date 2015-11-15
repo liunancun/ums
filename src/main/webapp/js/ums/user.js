@@ -26,19 +26,3 @@ $(function(argument) {
 		linkFormat : "yyyy-mm-dd 23:59:59"
 	});
 });
-
-function load(obj) {
-	Ums.modal.load(obj);
-}
-
-function add() {
-
-}
-
-function edit() {
-
-}
-
-function del() {
-
-}

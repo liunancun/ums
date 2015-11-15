@@ -3,7 +3,7 @@
 
 <div class="modal fade" id="modal">
 	<div class="modal-dialog">
-		<form class="modal-content" method="post"
+		<form class="modal-content" onsubmit="return edit(this)"
 			action="<%=request.getContextPath()%>/role/edit.action">
 			<input type="hidden" name="id" value="${role.id }" />
 			<div class="modal-header bg-primary">

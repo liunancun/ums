@@ -14,4 +14,5 @@
 <script src="../js/jquery.ztree.all-3.5.min.js"></script>
 <%-- 引入自定义脚本 --%>
 <script src="../js/upload.js"></script>
+<script src="../js/ums.js"></script>
 <script src="../js/ums/main.js"></script>

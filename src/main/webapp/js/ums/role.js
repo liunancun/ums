@@ -32,19 +32,3 @@ function jsonToString() {
 	}
 	$('#resources').val(ids);
 }
-
-function load(obj) {
-	Ums.modal.load(obj);
-}
-
-function add() {
-
-}
-
-function edit() {
-
-}
-
-function del() {
-
-}

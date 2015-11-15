@@ -3,7 +3,7 @@
 
 <div class="modal fade" id="modal">
 	<div class="modal-dialog">
-		<form class="modal-content" method="post"
+		<form class="modal-content" onsubmit="return add(this)"
 			action="<%=request.getContextPath()%>/user/add.action">
 			<div class="modal-header bg-primary">
 				<button type="button" class="close" data-dismiss="modal"

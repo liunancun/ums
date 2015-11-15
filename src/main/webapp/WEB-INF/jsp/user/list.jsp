@@ -30,15 +30,12 @@
 							</td>
 							<td title="${user.desc }">${user.desc }</td>
 							<td>
-								<img class="img18" alt="edit" src="../img/view.png"
-									url="<%=request.getContextPath()%>/user/view.action?id=${user.id }"
-									onclick="load(this)" />
-								<img class="img18" alt="edit" src="../img/edit.png"
-									url="<%=request.getContextPath()%>/user/initEdit.action?id=${user.id }"
-									onclick="load(this)" />
-								<a href="delete.action?id=${user.id }">
-									<img class="img18" alt="edit" src="../img/delete.png" />
-								</a>
+								<img class="img18" src="../img/view.png" onclick="load(this)"
+									url="<%=request.getContextPath()%>/user/view.action?id=${user.id }" />
+								<img class="img18" src="../img/edit.png" onclick="load(this)"
+									url="<%=request.getContextPath()%>/user/initEdit.action?id=${user.id }" />
+								<img class="img18" src="../img/delete.png" onclick="del(this)"
+									url="<%=request.getContextPath()%>/user/delete.action?id=${user.id }" />
 							</td>
 						</tr>
 					</c:forEach>
