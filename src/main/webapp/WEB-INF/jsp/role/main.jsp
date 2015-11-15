@@ -79,60 +79,62 @@
 				<%-- 功能按钮结束 --%>
 
 				<%-- 查询结果开始 --%>
-				<div class="panel panel-primary">
-					<div class="panel-heading">结果列表</div>
-					<table class="table table-bordered table-hover table-condensed">
-						<thead>
-							<tr class="active">
-								<th width="10%">编号</th>
-								<th width="15%">名字</th>
-								<th width="20%">创建时间</th>
-								<th>描述</th>
-								<th width="15%">操作</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:choose>
-								<c:when test="${not empty roles }">
-									<c:forEach items="${roles }" var="role">
+				<div id="datagrid">
+					<div class="panel panel-primary">
+						<div class="panel-heading">结果列表</div>
+						<table class="table table-bordered table-hover table-condensed">
+							<thead>
+								<tr class="active">
+									<th width="10%">编号</th>
+									<th width="15%">名字</th>
+									<th width="20%">创建时间</th>
+									<th>描述</th>
+									<th width="15%">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:choose>
+									<c:when test="${not empty roles }">
+										<c:forEach items="${roles }" var="role">
+											<tr>
+												<td title="${role.id }">${role.id }</td>
+												<td title="${role.name }">${role.name }</td>
+												<td
+													title="<fmt:formatDate value='${role.createTime }' pattern='yyyy-MM-dd HH:mm:ss' />">
+													<fmt:formatDate value="${role.createTime }"
+														pattern="yyyy-MM-dd HH:mm:ss" />
+												</td>
+												<td title="${role.desc }">${role.desc }</td>
+												<td>
+													<img class="img18" alt="edit" src="../img/view.png"
+														url="<%=request.getContextPath()%>/role/view.action?id=${role.id }"
+														onclick="Ums.modal.load(this)" />
+													<img class="img18" alt="edit" src="../img/edit.png"
+														url="<%=request.getContextPath()%>/role/initEdit.action?id=${role.id }"
+														onclick="Ums.modal.load(this)" />
+													<a href="delete.action?id=${role.id }">
+														<img class="img18" alt="edit" src="../img/delete.png" />
+													</a>
+												</td>
+											</tr>
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
 										<tr>
-											<td title="${role.id }">${role.id }</td>
-											<td title="${role.name }">${role.name }</td>
-											<td
-												title="<fmt:formatDate value='${role.createTime }' pattern='yyyy-MM-dd HH:mm:ss' />">
-												<fmt:formatDate value="${role.createTime }"
-													pattern="yyyy-MM-dd HH:mm:ss" />
-											</td>
-											<td title="${role.desc }">${role.desc }</td>
-											<td>
-												<img class="img18" alt="edit" src="../img/view.png"
-													url="<%=request.getContextPath()%>/role/view.action?id=${role.id }"
-													onclick="Ums.modal.load(this)" />
-												<img class="img18" alt="edit" src="../img/edit.png"
-													url="<%=request.getContextPath()%>/role/initEdit.action?id=${role.id }"
-													onclick="Ums.modal.load(this)" />
-												<a href="delete.action?id=${role.id }">
-													<img class="img18" alt="edit" src="../img/delete.png" />
-												</a>
-											</td>
+											<td colspan="6" align="center">没有数据</td>
 										</tr>
-									</c:forEach>
-								</c:when>
-								<c:otherwise>
-									<tr>
-										<td colspan="6" align="center">没有数据</td>
-									</tr>
-								</c:otherwise>
-							</c:choose>
-						</tbody>
-					</table>
-				</div>
-				<%-- 查询结果结束 --%>
+									</c:otherwise>
+								</c:choose>
+							</tbody>
+						</table>
+					</div>
+					<%-- 查询结果结束 --%>
 
-				<c:if test="${not empty roles }">
-					<%-- 引入分页页面文件 --%>
-					<%@ include file="page.jsp"%>
-				</c:if>
+					<c:if test="${not empty roles }">
+						<%-- 引入分页页面文件 --%>
+						<%@ include file="page.jsp"%>
+					</c:if>
+				</div>
 			</div>
 		</div>
 	</div>
