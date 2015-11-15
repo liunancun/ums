@@ -18,7 +18,7 @@ Ums.modal = {
 Ums.menu = {
 	load : function(obj) {
 		// 获取请求链接
-		var url = $(obj).attr('url');
+		var url = $(obj).attr('href');
 		// 将请求内容加载到主区域显示
 		$("#main").load(url);
 		// 标识被点击的菜单

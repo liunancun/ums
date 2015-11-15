@@ -5,15 +5,16 @@
 
 <div class="col-md-2 menu">
 	<ul class="nav nav-menu">
-		<li>
+		<li class="active">
 			<a href="<%=request.getContextPath()%>/main.action">主页</a>
 		</li>
 		<c:forEach items="${menus }" var="menu">
 			<li>
-				<a href="<%=request.getContextPath()%>${menu.url }">${menu.name }</a>
+				<a href="<%=request.getContextPath()%>${menu.url }"
+					onclick="return link(this)">${menu.name }</a>
 			</li>
 		</c:forEach>
-		<li class="active">
+		<li>
 			<a href="#">关于</a>
 		</li>
 	</ul>

@@ -1,3 +1,8 @@
+function link(obj) {
+	Ums.menu.load(obj);
+	return false;
+}
+
 function load(obj) {
 	Ums.modal.load(obj);
 }

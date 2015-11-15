@@ -18,6 +18,8 @@
 <link href="css/menu.css" rel="stylesheet">
 </head>
 <body>
+	<%-- 引入进度条页面 --%>
+	<%@ include file="common/progress.jsp"%>
 	<%-- 引入页头文件 --%>
 	<%@ include file="common/brand.jsp"%>
 

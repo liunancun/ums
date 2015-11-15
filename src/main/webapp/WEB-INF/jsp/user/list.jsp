@@ -30,11 +30,11 @@
 							</td>
 							<td title="${user.desc }">${user.desc }</td>
 							<td>
-								<img class="img18" src="../img/view.png" onclick="load(this)"
+								<img class="img18" src="img/view.png" onclick="load(this)"
 									url="<%=request.getContextPath()%>/user/view.action?id=${user.id }" />
-								<img class="img18" src="../img/edit.png" onclick="load(this)"
+								<img class="img18" src="img/edit.png" onclick="load(this)"
 									url="<%=request.getContextPath()%>/user/initEdit.action?id=${user.id }" />
-								<img class="img18" src="../img/delete.png" onclick="del(this)"
+								<img class="img18" src="img/delete.png" onclick="del(this)"
 									url="<%=request.getContextPath()%>/user/delete.action?id=${user.id }" />
 							</td>
 						</tr>
