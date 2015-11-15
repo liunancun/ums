@@ -66,10 +66,10 @@ Ums.list = {
 		// 获取添加数据
 		var data = $(obj).serialize();
 		// 执行添加
-		$.post(url, data);
-
-		// 执行查询
-		Ums.list.query();
+		$.post(url, data, function() {
+			// 执行查询
+			Ums.list.query();
+		});
 	},
 	// 编辑数据
 	edit : function(obj) {
@@ -78,19 +78,19 @@ Ums.list = {
 		// 获取编辑数据
 		var data = $(obj).serialize();
 		// 执行编辑
-		$.post(url, data);
-
-		// 执行查询
-		Ums.list.query();
+		$.post(url, data, function() {
+			// 执行查询
+			Ums.list.query();
+		});
 	},
 	// 删除数据
 	del : function(obj) {
 		// 获取删除链接
 		var url = $(obj).attr('url');
 		// 执行删除
-		$.post(url);
-
-		// 执行查询
-		Ums.list.query();
+		$.post(url, function() {
+			// 执行查询
+			Ums.list.query();
+		});
 	}
 };
