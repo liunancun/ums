@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
+import com.lnc.ums.common.TreeNode;
 import com.lnc.ums.role.bean.RoleBean;
-import com.lnc.ums.role.bean.TreeNode;
 import com.lnc.ums.role.service.RoleService;
 
 @Controller

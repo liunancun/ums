@@ -3,8 +3,8 @@ package com.lnc.ums.role.service;
 import java.util.List;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
+import com.lnc.ums.common.TreeNode;
 import com.lnc.ums.role.bean.RoleBean;
-import com.lnc.ums.role.bean.TreeNode;
 
 public interface RoleService {
 

@@ -6,11 +6,11 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
+import com.lnc.ums.common.TreeNode;
 import com.lnc.ums.menu.bean.MenuBean;
 import com.lnc.ums.menu.mapper.MenuMapper;
 import com.lnc.ums.role.bean.ResourcesBean;
 import com.lnc.ums.role.bean.RoleBean;
-import com.lnc.ums.role.bean.TreeNode;
 import com.lnc.ums.role.mapper.ResourcesMapper;
 import com.lnc.ums.role.mapper.RoleMapper;
 import com.lnc.ums.role.mapper.RoleResourcesMapper;
