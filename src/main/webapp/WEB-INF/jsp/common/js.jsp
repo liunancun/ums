@@ -18,3 +18,4 @@
 <script src="../js/page.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/user.js"></script>
+<script src="../js/role.js"></script>

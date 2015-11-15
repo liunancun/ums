@@ -6,8 +6,8 @@ CREATE TABLE T_MENU (
   URL VARCHAR(128)
 );
 INSERT INTO T_MENU  VALUES('DATA', '数据管理', '/data/list.action');
-INSERT INTO T_MENU  VALUES('USER', '用户管理', '/user/list.action');
-INSERT INTO T_MENU  VALUES('ROLE', '角色管理', '/role/list.action');
+INSERT INTO T_MENU  VALUES('USER', '用户管理', '/user/main.action');
+INSERT INTO T_MENU  VALUES('ROLE', '角色管理', '/role/main.action');
 INSERT INTO T_MENU  VALUES('TEST', '测试菜单', '/test/list.action');
 
 -- 初始化资源表

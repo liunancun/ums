@@ -30,12 +30,15 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    @RequestMapping("main")
+    public String main() {
+
+        return "user/main";
+    }
+
     @RequestMapping("list")
     public String list(Model model, UserBean user, @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10") int limit) {
-
-        // 设置当前菜单ID
-        model.addAttribute("menuId", "user");
 
         List<UserBean> users = userService.query(user, new PageBounds(page, limit));
 

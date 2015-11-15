@@ -24,6 +24,12 @@ public class RoleController {
     @Resource
     private RoleService roleService;
 
+    @RequestMapping("main")
+    public String main() {
+
+        return "role/main";
+    }
+
     @RequestMapping("list")
     public String list(Model model, RoleBean role, @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10") int limit) {
