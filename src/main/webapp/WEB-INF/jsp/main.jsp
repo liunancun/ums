@@ -10,10 +10,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>用户管理系统</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
-<link href="css/menu.css" rel="stylesheet">
+<%-- 引入样式文件 --%>
+<%@ include file="../common/css.jsp"%>
 </head>
 <body>
 	<%-- 引入页头文件 --%>
@@ -69,7 +67,7 @@
 		</div>
 	</div>
 
-	<script src="js/jquery-1.11.3.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<%-- 引入脚本文件 --%>
+	<%@ include file="../common/js.jsp"%>
 </body>
 </html>
