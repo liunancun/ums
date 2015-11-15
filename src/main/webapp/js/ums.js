@@ -15,6 +15,20 @@ Ums.modal = {
 	}
 };
 
+Ums.menu = {
+	load : function(obj) {
+		// 获取请求链接
+		var url = $(obj).attr('url');
+		// 将请求内容加载到主区域显示
+		$("#main").load(url);
+		// 标识被点击的菜单
+		$(obj).parent().parent().children().each(function() {
+			$(this).removeClass('active');
+		});
+		$(obj).parent().addClass('active');
+	}
+};
+
 Ums.list = {
 	// 查询条件
 	data : '',

@@ -10,8 +10,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>用户管理系统</title>
-<%-- 引入样式文件 --%>
-<%@ include file="../common/css.jsp"%>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<link href="css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/menu.css" rel="stylesheet">
 </head>
 <body>
 	<%-- 引入页头文件 --%>
@@ -67,7 +71,19 @@
 		</div>
 	</div>
 
-	<%-- 引入脚本文件 --%>
-	<%@ include file="../common/js.jsp"%>
+	<%-- 引入jquery组件 --%>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<%-- 引入bootstrap组件 --%>
+	<script src="js/bootstrap.min.js"></script>
+	<%-- 引入bootstrap日期时间组件 --%>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<%-- 引入bootstrap日期时间组件中文国际化 --%>
+	<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+	<%-- 引入zTree组件 --%>
+	<script src="js/jquery.ztree.all-3.5.min.js"></script>
+	<%-- 引入自定义脚本 --%>
+	<script src="js/upload.js"></script>
+	<script src="js/ums.js"></script>
+	<script src="js/ums/main.js"></script>
 </body>
 </html>
