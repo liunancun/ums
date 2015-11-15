@@ -74,7 +74,7 @@
 				<div class="mt10f pb10">
 					<button class="btn btn-primary" type="button"
 						url="<%=request.getContextPath()%>/user/initAdd.action"
-						onclick="Ums.modal.load(this)">添加</button>
+						onclick="load(this)">添加</button>
 					<span class="btn btn-primary btn-file">
 						导入
 						<input type="file" name="userFile" onchange="upload(this)"
@@ -99,5 +99,6 @@
 
 	<%-- 引入脚本文件 --%>
 	<%@ include file="../common/js.jsp"%>
+	<script src="../js/ums/user.js"></script>
 </body>
 </html>

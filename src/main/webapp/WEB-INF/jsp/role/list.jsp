@@ -32,10 +32,10 @@
 							<td>
 								<img class="img18" alt="edit" src="../img/view.png"
 									url="<%=request.getContextPath()%>/role/view.action?id=${role.id }"
-									onclick="Ums.modal.load(this)" />
+									onclick="load(this)" />
 								<img class="img18" alt="edit" src="../img/edit.png"
 									url="<%=request.getContextPath()%>/role/initEdit.action?id=${role.id }"
-									onclick="Ums.modal.load(this)" />
+									onclick="load(this)" />
 								<a href="delete.action?id=${role.id }">
 									<img class="img18" alt="edit" src="../img/delete.png" />
 								</a>

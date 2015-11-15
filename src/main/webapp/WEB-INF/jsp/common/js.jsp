@@ -15,5 +15,3 @@
 <%-- 引入自定义脚本 --%>
 <script src="../js/upload.js"></script>
 <script src="../js/ums/main.js"></script>
-<script src="../js/ums/user.js"></script>
-<script src="../js/ums/role.js"></script>
