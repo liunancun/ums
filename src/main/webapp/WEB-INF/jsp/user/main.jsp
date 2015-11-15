@@ -64,8 +64,7 @@
 								<button class="btn btn-primary" type="submit">搜索</button>
 								<button class="btn btn-primary" type="button"
 									onclick="Ums.list.search()">搜索</button>
-								<button class="btn btn-primary" type="button"
-									onclick="clean(this)">重置</button>
+								<button class="btn btn-primary" type="reset">重置</button>
 							</div>
 						</form>
 					</div>
