@@ -32,5 +32,25 @@ Ums.list = {
 		url += "?page=" + page;
 		// 加载查询结果
 		$('#list').load(url, Ums.list.data);
+	},
+	add : function() {
+		// 获取添加链接
+		var url = $('#add').attr('action');
+		// 获取添加数据
+		var data = $('#add').serialize();
+		// 提交添加
+		$.post(url, data);
+		// 刷新页面
+		Ums.list.page(1);
+	},
+	edit : function() {
+		// 获取编辑链接
+		var url = $('#edit').attr('action');
+		// 获取编辑数据
+		var data = $('#edit').serialize();
+		// 提交编辑
+		$.post(url, data);
+		// 刷新页面
+		Ums.list.page(1);
 	}
 };

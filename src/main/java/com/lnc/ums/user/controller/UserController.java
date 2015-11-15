@@ -61,7 +61,7 @@ public class UserController {
 
         userService.save(user);
 
-        return "redirect:list.action";
+        return "redirect:main.action";
     }
 
     @RequestMapping("view")
@@ -89,7 +89,7 @@ public class UserController {
 
         userService.update(user);
 
-        return "redirect:list.action";
+        return "redirect:main.action";
     }
 
     @RequestMapping("delete")
@@ -97,7 +97,7 @@ public class UserController {
 
         userService.delete(id);
 
-        return "redirect:list.action";
+        return "redirect:main.action";
     }
 
     @RequestMapping("imp")

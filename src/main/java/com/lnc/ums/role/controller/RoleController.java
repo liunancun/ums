@@ -66,7 +66,7 @@ public class RoleController {
 
         roleService.save(role);
 
-        return "redirect:list.action";
+        return "redirect:main.action";
     }
 
     @RequestMapping("view")
@@ -122,7 +122,7 @@ public class RoleController {
 
         roleService.update(role);
 
-        return "redirect:list.action";
+        return "redirect:main.action";
     }
 
     @RequestMapping("delete")
@@ -130,7 +130,7 @@ public class RoleController {
 
         roleService.delete(id);
 
-        return "redirect:list.action";
+        return "redirect:main.action";
     }
 
 }
