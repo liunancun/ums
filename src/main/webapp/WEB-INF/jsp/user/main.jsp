@@ -61,7 +61,6 @@
 								</div>
 							</div>
 							<div class="pull-right">
-								<button class="btn btn-primary" type="submit">搜索</button>
 								<button class="btn btn-primary" type="button"
 									onclick="Ums.list.search()">搜索</button>
 								<button class="btn btn-primary" type="reset">重置</button>

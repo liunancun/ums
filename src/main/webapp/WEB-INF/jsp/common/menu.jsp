@@ -13,7 +13,7 @@
 				<a href="<%=request.getContextPath()%>${menu.url }">${menu.name }</a>
 			</li>
 		</c:forEach>
-		<li>
+		<li class="active">
 			<a href="#">关于</a>
 		</li>
 	</ul>

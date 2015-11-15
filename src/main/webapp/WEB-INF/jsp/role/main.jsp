@@ -32,7 +32,7 @@
 							action="<%=request.getContextPath()%>/role/list.action">
 							<div class="row">
 								<div class="form-group col-md-6">
-									<label>名字</label>
+									<label>角色名</label>
 									<input class="form-control" type="text" name="namelike"
 										value="${param.namelike }" />
 								</div>
@@ -61,7 +61,6 @@
 								</div>
 							</div>
 							<div class="pull-right">
-								<button class="btn btn-primary" type="submit">搜索</button>
 								<button class="btn btn-primary" type="button"
 									onclick="Ums.list.search()">搜索</button>
 								<button class="btn btn-primary" type="reset">重置</button>

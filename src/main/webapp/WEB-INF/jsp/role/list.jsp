@@ -10,7 +10,7 @@
 		<thead>
 			<tr class="active">
 				<th width="10%">编号</th>
-				<th width="15%">名字</th>
+				<th width="15%">角色名</th>
 				<th width="20%">创建时间</th>
 				<th>描述</th>
 				<th width="15%">操作</th>

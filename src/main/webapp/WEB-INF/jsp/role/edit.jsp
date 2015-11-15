@@ -15,7 +15,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<label>名字</label>
+					<label>角色名</label>
 					<input class="form-control" type="text" value="${role.name }"
 						readonly />
 				</div>
