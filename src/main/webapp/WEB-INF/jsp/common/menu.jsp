@@ -5,9 +5,12 @@
 
 <div class="col-md-2 menu">
 	<ul class="nav nav-menu">
+		<li>
+			<a href="<%=request.getContextPath()%>/main.action">主页</a>
+		</li>
 		<c:forEach items="${menus }" var="menu">
-			<li <c:if test="${menu.id eq menuId }">class="active"</c:if>>
-				<a href="${pageContext.request.contextPath }${menu.url }">${menu.name }</a>
+			<li>
+				<a href="<%=request.getContextPath()%>${menu.url }">${menu.name }</a>
 			</li>
 		</c:forEach>
 		<li>

@@ -34,7 +34,7 @@
 								<div class="form-group col-md-6">
 									<label>用户名</label>
 									<input class="form-control" type="text" name="usernamelike"
-										placeholder="用户名" value="${param.usernamelike }" />
+										value="${param.usernamelike }" />
 								</div>
 								<div class="form-group col-md-6">
 									<label>创建时间</label>
